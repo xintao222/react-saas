@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card,Form,Button,Input,Radio,message } from 'antd';
+import { Card,Form,Button,Input,message } from 'antd';
 import https from "../../api/https";
 import "../../styles/other.css";
 
@@ -59,15 +59,15 @@ export default class AddApp extends React.Component {
         }
 
         this.setState({ isDisable: true });
-        https.fetchPost("/yx/endpointapp/add.action", params)
+        https.fetchPost("/yx/endpointapp/update.action", params)
         .then(data => {
             this.setState({ isDisable: false });
             console.log(data)
             if (data.code == 0) {
-                message.success("创建成功");
-                this.props.history.push(`/saas/appList`);
+                message.success("更新成功");
+                this.props.history.push(`/app/appList`);
             }
-            else message.error("创建失败");
+            else message.error("更新失败");
         })
     }
 
@@ -77,9 +77,21 @@ export default class AddApp extends React.Component {
             id: '',
             appName: '',
             platform: '',
+            email: '',
             channel: '',
             status: '1'
         });
+        console.log(window.appList)
+        if(window.appList){
+            let data = window.appList;
+            this.formRef.current.setFieldsValue({
+                id: data.id,
+                appName: data.appName,
+                platform: data.platform,
+                channel: data.channel,
+                status: data.status
+            });
+        }
     }
 
     render() {
@@ -96,7 +108,7 @@ export default class AddApp extends React.Component {
                 >
                     <Form.Item label="&emsp;&emsp;&emsp;ID">
                         <Form.Item name="id" noStyle>
-                            <Input />
+                            <Input disabled />
                         </Form.Item>
                     </Form.Item>
                     <Form.Item label="App名称">
@@ -115,12 +127,12 @@ export default class AddApp extends React.Component {
                             <Input />
                         </Form.Item>
                     </Form.Item>
-                    <Form.Item name="status" label="&emsp;&emsp;状态">
+                    {/* <Form.Item name="status" label="&emsp;&emsp;状态">
                         <Radio.Group>
                             <Radio value="1">可用</Radio>
                             <Radio value="2">不可用</Radio>
                         </Radio.Group>
-                    </Form.Item>
+                    </Form.Item> */}
 
                     <Form.Item wrapperCol={{ span: 12, offset: 9}}>
                         <Button type="primary" disabled={isDisable} htmlType="submit">

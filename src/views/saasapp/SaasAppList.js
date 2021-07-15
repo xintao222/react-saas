@@ -3,7 +3,7 @@ import { Card,Table,Space,Button,Input,Switch,Modal,message } from 'antd';
 import https from "../../api/https";
 import { EditOutlined } from '@ant-design/icons';
 const { Search } = Input;
-export default class AppList extends React.Component {
+export default class SaasAppList extends React.Component {
     
     state = {
         visible: false,
@@ -15,22 +15,23 @@ export default class AppList extends React.Component {
         selectedRowKeys:[],
         columns:[
             {
-                title: 'ID',
-                dataIndex: 'id',
+                title: '商户ID',
+                dataIndex: 'ownerId',
                 ellipsis: true,
             },
             {
-                title: 'App名称',
+                title: '商户名称',
                 dataIndex: 'appName',
             },
             {
-                title: '平台',
-                dataIndex: 'platform',
+                title: '应用ID',
+                dataIndex: 'endpointAppId',
+                ellipsis: true,
             },
-            {  
-                title: '渠道',
-                dataIndex: 'channel',
-            },
+            // {
+            //     title: '应用名称',
+            //     dataIndex: 'appName',
+            // },
             {
               title: '状态',
               textWrap: 'word-break',
@@ -73,7 +74,7 @@ export default class AppList extends React.Component {
             status: this.state.record.status==1?2:1
         }
         console.log(params);
-        https.fetchPost("/yx/endpointapp/updateStatus.action", params).then(data => {
+        https.fetchPost("/yx/saasapp/updateStatus.action", params).then(data => {
             if (data.code === 0) {
                 message.success("更新成功");
                 this.getList(1);
@@ -96,7 +97,7 @@ export default class AppList extends React.Component {
             pageNum: index,
             pageSize: 10
         };
-        https.fetchGet("/yx/endpointapp/page.action", params).then(data => {
+        https.fetchGet("/yx/saasapp/page.action", params).then(data => {
             if (data.code === 0) {
                 console.log(data);
                 this.setState({
@@ -116,7 +117,7 @@ export default class AppList extends React.Component {
         let params = {
             id: val,
         };
-        https.fetchGet("/yx/endpointapp/getById", params).then(data => {
+        https.fetchGet("/yx/saasapp/getById", params).then(data => {
             if (data.code === 0) {
                 console.log(data);
                 return;
@@ -133,10 +134,10 @@ export default class AppList extends React.Component {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
         window.appList = record;
-        this.props.history.push(`/saas/editApp`);
+        this.props.history.push(`/app/editApp`);
     }
     jump = () => {
-        this.props.history.push(`/saas/addApp`);
+        this.props.history.push(`/app/addApp`);
     }
     goPage = index => {
         this.getList(index);
@@ -147,7 +148,7 @@ export default class AppList extends React.Component {
     render() {
         const { list,current,pageSize,pageTotal,columns } = this.state
         return (
-            <Card title="应用管理" bordered={false}>
+            <Card title="商户接入管理" bordered={false}>
                 <Search
                     placeholder="请输入搜索关键词"
                     enterButton="查询"

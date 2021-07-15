@@ -96,7 +96,6 @@ export default class App extends Component {
     //初始化路由
     let routeList = this.routerInit('1',routeMap);
     routeList = routeList.concat(staticRoute);
-    console.log(routeList)
     let menuList = this.menuInit('1',routeMap);
     this.setState({
       routeList,

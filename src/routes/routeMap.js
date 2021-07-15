@@ -1,11 +1,12 @@
 import Loadable from 'react-loadable';
 import Loading from '../components/Loading'
 
-const AppList = Loadable({loader: () => import('../views/saas/AppList'),loading: Loading});
-const AddApp = Loadable({loader: () => import('../views/saas/AddApp'),loading: Loading});
+const AppList = Loadable({loader: () => import('../views/app/AppList'),loading: Loading});
+const AddApp = Loadable({loader: () => import('../views/app/AddApp'),loading: Loading});
+const SaasAppList = Loadable({loader: () => import('../views/saasapp/SaasAppList'),loading: Loading});
+const AddSaasApp = Loadable({loader: () => import('../views/saasapp/AddSaasApp'),loading: Loading});
 const ShopList = Loadable({loader: () => import('../views/shop/ShopList'),loading: Loading});
 const AddShop = Loadable({loader: () => import('../views/shop/AddShop'),loading: Loading});
-const EditShop = Loadable({loader: () => import('../views/shop/EditShop'),loading: Loading});
 const Information = Loadable({loader: () => import('../views/info/Information'),loading: Loading});
 const Setting = Loadable({loader: () => import('../views/info/Setting'),loading: Loading});
 const Message = Loadable({loader: () => import('../views/Message'),loading: Loading});
@@ -64,44 +65,42 @@ export default [
         ]
     },
     {
-        path: '/saas',
-        name: 'saas',
+        path: '/saasapp',
+        name: 'saasapp',
+        meta: {  title: '商户接入管理', icon: 'appstore', roleId: ['1','3'] },
+        children: [
+            {
+                path: "/saasapp/saasAppList",
+                name: "saasAppList",
+                component: SaasAppList,
+                meta: { title: "商户接入列表" }
+            },
+            {
+                path: "/saasapp/addSaasApp",
+                name: "addSaasApp",
+                component: AddSaasApp,
+                meta: { title: "创建商户接入" }
+            }
+        ]
+    },
+    {
+        path: '/app',
+        name: 'app',
         meta: {  title: '应用管理', icon: 'appstore', roleId: ['1','3'] },
         children: [
             {
-                path: "/saas/appList",
+                path: "/app/appList",
                 name: "appList",
                 component: AppList,
                 meta: { title: "应用列表" }
             },
             {
-                path: "/saas/addApp",
+                path: "/app/addApp",
                 name: "addApp",
                 component: AddApp,
                 meta: { title: "创建应用" }
             }
         ]
     }
-    // { role: ["1","3"], path: "/app/appList", component: AppList},
-    // { role: ["1","3"], path: "/app/addApp", component: AddApp},
-    // { role: ["1","2"], path: "/shop/shopList", component: ShopList},
-    // { role: ["1","2"], path: "/shop/addShop", component: AddShop},
-    // { role: ["1","2","3"], path: "/info/information", component: Information},
-    // { role: ["1","2","3"], path: "/info/setting", component: Setting},
-    // { role: [], path: "/message", component: Message},
-    // { role: [], path: "/groupSend", component: GroupSend},
-    // { role: [], path: "/sendHistory", component: SendHistory},
-    // { role: [], path: "/materialManager", component: MaterialManager},
-    // { role: [], path: "/addImageText", component: AddImageText},
-    // { role: [], path: "/editImageText", component: EditImageText},
-    // { role: [], path: "/userStatistics", component: UserStatistics},
-    // { role: [], path: "/menuStatistics", component: MenuStatistics},
-    // { role: [], path: "/messageStatistics", component: MessageStatistics},
-    // { role: [], path: "/customizeMenu", component: CustomizeMenu},
-    // { role: [], path: "/serviceList", component: ServiceList},
-    // { role: [], path: "/editService", component: EditService},
-    // { role: [], path: "/createAudio", component: CreateAudio},
-    // { role: [], path: "/createVideo", component: CreateVideo},
-    // { role: [], path: "/demo", component: Demo},
 ];
 
