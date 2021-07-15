@@ -4,7 +4,7 @@ Mock.mock(/\/getCode/,"get",require("./getCode.json"))
 Mock.mock(/\/getEmailCode/,"get",require("./getEmailCode.json"))
 Mock.mock(/\/userInfo/,"get",require("./userInfo.json"))
 Mock.mock(/\/yx\/user\/page.action/,"get",require("./shopList.json"))
-Mock.mock(/\/appList/,"get",require("./appList.json"))
+Mock.mock(/\/yx\/endpointapp\/page.action/,"get",require("./appList.json"))
 Mock.mock(/\/appDetail/,"get",require("./appDetail.json"))
 Mock.mock(/\/roleMenu/,"get",require("./roleMenu.json"))
 
