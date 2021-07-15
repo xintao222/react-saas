@@ -1,0 +1,25 @@
+{
+    "mesg": "请求成功",
+    "code": 200,
+    "data": {
+        "id": 501142,
+        "username": "e46748ce817e6875",
+        "email": "956780793@qq.com",
+        "realname": "张三",
+        "qq": null,
+        "mobile": "18027155285",
+        "companyName": "广州张三科技有限公司",
+        "regDate": 1573634603000,
+        "parentId": 0,
+        "parentName": "e46748ce817e6875",
+        "payRate": 0,
+        "devKey": "854cd4d6c9038289baa460df",
+        "devSecret": "cdcaca55f195b53b6b4b14c7",
+        "registerSource": null,
+        "vipDeadlineTime": null,
+        "currentTime": 1613983457249
+    },
+    "subAccountVIP": 0,
+    "unreadCount": 86,
+    "authType": -1
+}

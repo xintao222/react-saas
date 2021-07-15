@@ -1,0 +1,19 @@
+.card-item {
+  font-size: 14px;
+  line-height: 40px;
+}
+.card-item > label{
+  display: inline-block;
+  width: 120px;
+}
+.card-item > span{
+  color:gray;
+  margin-left: 10px;
+}
+.card-item > .btn-developer{
+  color: #2d9c8b;
+  cursor: pointer;
+}
+.card-item > .btn-developer:hover{
+  text-decoration: underline;
+}

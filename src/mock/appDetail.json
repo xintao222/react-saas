@@ -1,0 +1,17 @@
+{
+    "mesg": "请求成功",
+    "code": 200,
+    "data": {
+        "name": "阿飞科技",
+        "icon": "",
+        "key": "514c4f6e36eb7374ec57ec7c",
+        "apiMasterSecret": "0bb24b37dd82bfaf193dbf85",
+        "location": "bjff",
+        "appCategory": 1,
+        "appPackage": "阿飞科技",
+        "bundleId": null,
+        "appDescription": null,
+        "lastUpdateTime": "2021-02-22 16:33:53",
+        "createTime": "2021-02-22 16:32:00"
+    }
+}

@@ -1,0 +1,111 @@
+{
+    "mesg": "请求成功",
+    "code": 200,
+    "appInfo": [
+        {
+            "appGroupKey": "dcbcbf813ca4c2f7f24d706b",
+            "appGroupName": "我的应用"
+        }
+    ],
+    "pageIndex": 1,
+    "count": 54,
+    "pageSize": 10,
+    "data": [
+        {
+            "id": "10001",
+            "appKey": "514c4f6e36eb7374ec57ec7c",
+            "appName": "建信科技",
+            "pkg": "一个短信分发功能应用",
+            "status": 0,
+            "createTime": 1613982720000,
+            "defaultWxApp": true
+        },
+        {
+            "id": "10002",
+            "appKey": "061fa300183b6bca63d117af",
+            "appName": "银信科技",
+            "pkg": "一个银信分发功能应用",
+            "platform": "",
+            "status": 0,
+            "createTime": 1613983389000,
+            "defaultWxApp": null
+        },
+        {
+            "id": "10003",
+            "appKey": "514c4f6e36eb7374ec57ec7c",
+            "appName": "汇丰科技",
+            "pkg": "一个短信分发功能应用",
+            "status": 0,
+            "createTime": 1613982720000,
+            "defaultWxApp": true
+        },
+        {
+            "id": "10004",
+            "appKey": "061fa300183b6bca63d117af",
+            "appName": "软银科技",
+            "pkg": "一个银信分发功能应用",
+            "platform": "",
+            "status": 0,
+            "createTime": 1613983389000,
+            "defaultWxApp": null
+        },
+        {
+            "id": "10005",
+            "appKey": "514c4f6e36eb7374ec57ec7c",
+            "appName": "微信科技",
+            "pkg": "一个短信分发功能应用",
+            "status": 0,
+            "createTime": 1613982720000,
+            "defaultWxApp": true
+        },
+        {
+            "id": "10006",
+            "appKey": "061fa300183b6bca63d117af",
+            "appName": "金融科技",
+            "pkg": "一个银信分发功能应用",
+            "platform": "",
+            "status": 0,
+            "createTime": 1613983389000,
+            "defaultWxApp": null
+        },
+        {
+            "id": "10007",
+            "appKey": "514c4f6e36eb7374ec57ec7c",
+            "appName": "蓝海科技",
+            "pkg": "一个短信分发功能应用",
+            "status": 0,
+            "createTime": 1613982720000,
+            "defaultWxApp": true
+        },
+        {
+            "id": "10008",
+            "appKey": "061fa300183b6bca63d117af",
+            "appName": "三体科技",
+            "pkg": "一个银信分发功能应用",
+            "platform": "",
+            "status": 0,
+            "createTime": 1613983389000,
+            "defaultWxApp": null
+        },
+        {
+            "id": "10009",
+            "appKey": "514c4f6e36eb7374ec57ec7c",
+            "appName": "达摩科技",
+            "pkg": "一个短信分发功能应用",
+            "status": 0,
+            "createTime": 1613982720000,
+            "defaultWxApp": true
+        },
+        {
+            "id": "10010",
+            "appKey": "061fa300183b6bca63d117af",
+            "appName": "亚瑟科技",
+            "pkg": "一个银信分发功能应用",
+            "platform": "",
+            "status": 0,
+            "createTime": 1613983389000,
+            "defaultWxApp": null
+        }
+    ],
+    "currentTime": 1613983457248
+}

@@ -1,0 +1,149 @@
+{
+    "mesg": "请求成功",
+    "code": 200,
+    "data": {
+        "page": {
+            "count": 31,
+            "pageSize": 10,
+            "page": 0
+        },
+        "list": [
+            {
+                "id": 1044,
+                "accountid": "123",
+                "ppmessageid": "123",
+                "materialid": "123",
+                "sendtime": "2020-09-15 16:46:20",
+                "publicImageTextList": [
+                    {
+                        "title": 555,
+                        "summary": "88888",
+                        "pushImageUrl": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/536/536.jpg"
+                    }
+                ],
+                "materialId": 1213
+            },
+            {
+                "id": 1045,
+                "accountid": "123",
+                "ppmessageid": "123",
+                "materialid": "123",
+                "sendtime": "2020-09-15 16:46:20",
+                "publicImageTextList": [
+                    {
+                        "title": 555,
+                        "summary": "88888",
+                        "pushImageUrl": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/536/536.jpg"
+                    }
+                ],
+                "materialId": 1213
+            },
+            {
+                "id": 1046,
+                "accountid": "123",
+                "ppmessageid": "123",
+                "materialid": "123",
+                "sendtime": "2020-09-15 16:46:20",
+                "publicImageTextList": [
+                    {
+                        "title": 555,
+                        "summary": "88888",
+                        "pushImageUrl": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/536/536.jpg"
+                    }
+                ],
+                "materialId": 1213
+            },
+            {
+                "id": 1047,
+                "accountid": "123",
+                "ppmessageid": "123",
+                "materialid": "123",
+                "sendtime": "2020-09-15 16:46:20",
+                "publicImageTextList": [
+                    {
+                        "title": 555,
+                        "summary": "88888",
+                        "pushImageUrl": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/536/536.jpg"
+                    }
+                ],
+                "materialId": 1213
+            },
+            {
+                "id": 1048,
+                "accountid": "123",
+                "ppmessageid": "123",
+                "materialid": "123",
+                "sendtime": "2020-09-15 16:46:20",
+                "publicImageTextList": [
+                    {
+                        "title": 555,
+                        "summary": "88888",
+                        "pushImageUrl": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/536/536.jpg"
+                    }
+                ],
+                "materialId": 1213
+            },
+            {
+                "id": 1049,
+                "accountid": "123",
+                "ppmessageid": "123",
+                "materialid": "123",
+                "sendtime": "2020-09-15 16:46:20",
+                "publicImageTextList": [
+                    {
+                        "title": 555,
+                        "summary": "88888",
+                        "pushImageUrl": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/536/536.jpg"
+                    }
+                ],
+                "materialId": 1213
+            },
+            {
+                "id": 1050,
+                "accountid": "123",
+                "ppmessageid": "123",
+                "materialid": "123",
+                "sendtime": "2020-09-15 16:46:20",
+                "publicImageTextList": [
+                    {
+                        "title": 555,
+                        "summary": "88888",
+                        "pushImageUrl": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/536/536.jpg"
+                    }
+                ],
+                "materialId": 1213
+            },
+            {
+                "id": 1051,
+                "accountid": "123",
+                "ppmessageid": "123",
+                "materialid": "123",
+                "sendtime": "2020-09-15 16:46:20",
+                "publicImageTextList": [
+                    {
+                        "title": 555,
+                        "summary": "88888",
+                        "pushImageUrl": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/536/536.jpg"
+                    }
+                ],
+                "materialId": 1213
+            },
+            {
+                "id": 1052,
+                "accountid": "123",
+                "ppmessageid": "123",
+                "materialid": "123",
+                "sendtime": "2020-09-15 16:46:20",
+                "publicImageTextList": [
+                    {
+                        "title": 555,
+                        "summary": "88888",
+                        "pushImageUrl": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/536/536.jpg"
+                    }
+                ],
+                "materialId": 1213
+            }
+        ]
+    },
+    "success": true
+}

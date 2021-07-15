@@ -1,0 +1,132 @@
+{
+    "mesg": "请求成功",
+    "code": 0,
+    "data": {
+        "pageIndex": 1,
+        "total": 54,
+        "pageSize": 10,
+        "rows": [
+            {
+                "userId": "100001",
+                "userName": "建行生活",
+                "password": "******",
+                "email": "jianghang@ccb.com",
+                "mobile": "18058687898",
+                "status": 1,
+                "address": "广州市天河区科韵路建工楼",
+                "remainFlow": "1150000",
+                "dailyLimit": 100,
+                "createTime": "2021-07-14 12:20:30"
+            },
+            {
+                "userId": "100002",
+                "userName": "善融商务",
+                "password": "******",
+                "email": "shanrong@ccb.com",
+                "mobile": "18058686789",
+                "status": 2,
+                "address": "广州市白云区京溪南方医院",
+                "remainFlow": "1580000",
+                "dailyLimit": 100,
+                "createTime": "2021-07-14 12:20:30"
+            },
+            {
+                "userId": "100003",
+                "userName": "手机银行",
+                "password": "******",
+                "email": "shouji@ccb.com",
+                "mobile": "18058687898",
+                "status": 1,
+                "address": "广州市海珠区环汇商业广场",
+                "remainFlow": "960000",
+                "dailyLimit": 100,
+                "createTime": "2021-07-14 12:20:30"
+            },
+            {
+                "userId": "100004",
+                "userName": "建信金融",
+                "password": "******",
+                "email": "jiangxin@ccb.com",
+                "mobile": "18058686789",
+                "status": 1,
+                "address": "广州市天河区太古汇大厦",
+                "remainFlow": "1250000",
+                "dailyLimit": 100,
+                "createTime": "2021-07-14 12:20:30"
+            },
+            {
+                "userId": "100005",
+                "userName": "建行生活",
+                "password": "******",
+                "email": "jianghang@ccb.com",
+                "mobile": "18058687898",
+                "status": 1,
+                "address": "广州市天河区科韵路建工楼",
+                "remainFlow": "1150000",
+                "dailyLimit": 100,
+                "createTime": "2021-07-14 12:20:30"
+            },
+            {
+                "userId": "100006",
+                "userName": "善融商务",
+                "password": "******",
+                "email": "shanrong@ccb.com",
+                "mobile": "18058686789",
+                "status": 1,
+                "address": "广州市白云区京溪南方医院",
+                "remainFlow": "1580000",
+                "dailyLimit": 100,
+                "createTime": "2021-07-14 12:20:30"
+            },
+            {
+                "userId": "100007",
+                "userName": "手机银行",
+                "password": "******",
+                "email": "shouji@ccb.com",
+                "mobile": "18058687898",
+                "status": 1,
+                "address": "广州市海珠区环汇商业广场",
+                "remainFlow": "960000",
+                "dailyLimit": 100,
+                "createTime": "2021-07-14 12:20:30"
+            },
+            {
+                "userId": "100008",
+                "userName": "建信金融",
+                "password": "******",
+                "email": "jiangxin@ccb.com",
+                "mobile": "18058686789",
+                "status": 1,
+                "address": "广州市天河区太古汇大厦",
+                "remainFlow": "1250000",
+                "dailyLimit": 100,
+                "createTime": "2021-07-14 12:20:30"
+            },
+            {
+                "userId": "100009",
+                "userName": "建行生活",
+                "password": "******",
+                "email": "jianghang@ccb.com",
+                "mobile": "18058687898",
+                "status": 1,
+                "address": "广州市天河区科韵路建工楼",
+                "remainFlow": "1150000",
+                "dailyLimit": 100,
+                "createTime": "2021-07-14 12:20:30"
+            },
+            {
+                "userId": "100010",
+                "userName": "善融商务",
+                "password": "******",
+                "email": "shanrong@ccb.com",
+                "mobile": "18058686789",
+                "status": 1,
+                "address": "广州市白云区京溪南方医院",
+                "remainFlow": "1580000",
+                "dailyLimit": 100,
+                "createTime": "2021-07-14 12:20:30"
+            }
+        ]
+    },
+    "currentTime": 1613983457248
+}

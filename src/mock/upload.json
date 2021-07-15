@@ -1,0 +1,60 @@
+{
+    "reportId": 185,
+    "tenantId": 7,
+    "projectId": 28,
+    "folderId": null,
+    "reportName":"316数据表格",
+    "backgroundCss":"{\"elemId\":4,\"canvasWrap\":{\"width\":800,\"height\":1132,\"bgColor\":{\"color\":\"#fff\",\"opacity\":100},\"bgImg\":{},\"grid\":false},\"calculationList\":[]}",
+    "templateId":null,"uri":"","status":"","lastRefreshTime":null,"allowUser":null,"reportType":2,"recordState": "y",
+    "creatorId": 1556088527401,
+    "createTime": "2021-03-16T17:57:40.000+0800",
+    "modifierId": null,
+    "modifyTime":"2020-09-24T14: 47: 16.000+0800",
+    "dvReportComponents":[
+        {
+            "componentCss":"{\"id\":\"elem_text_1\",\"type\":\"text\",\"componentId\":null,\"name\":\"⽂本\",\"elemConfig\":{\"x\":0,\"y\":0,\"w\":798,\"h\":50,\"minWidth\":10,\"minHeight\":10,\"zindex\":1,\"handles\":[\"bm\"],\"draggable\":false,\"dragHandle\":\"\",\"resizable\":true,\"lockAspectRatio\":false,\"preventDeactivation\":false},\"option\":{\"text\":\"标题\",\"isChange\":true,\"color\":\"#000\",\"fontSize\":18,\"fontFamily\":\"Microsoft Yahei\",\"fontWeight\":\"normal\",\"fontStyle\":\"normal\",\"textDecoration\":\"none\",\"textAlign\":\"center\",\"textIndent\":0,\"lineHeight\":18,\"backgroundColor\":\"rgba(0,0,0,0)\",\"borderColor\":\"rgba(0,0,0,0)\",\"borderWidth\":0,\"borderStyle\":\"solid\",\"borderRadius\":0},\"cusData\":null}",
+            "componentData": "null",
+            "componentType": "text",
+            "creatorId": 1556088527401,
+            "guiId":"elem_text_1",
+            "modelId":null,
+            "projectId":null,
+            "reportId":185,
+            "tenantId":null
+        },
+        {
+            "componentCss":"{\"id\":\"elem_character_4\",\"type\":\"character\",\"componentId\":null,\"name\":\"参数组件\",\"elemConfig\":{\"x\":0,\"y\":0,\"w\":184,\"h\":32,\"minWidth\":10,\"minHeight\":10,\"zindex\":1,\"handles\":[\"mr\"],\"draggable\":false,\"dragHandle\":\"\",\"resizable\":true,\"lockAspectRatio\":false,\"preventDeactivation\":false},\"option\":{\"title\":{\"text\":\"⽂本\",\"color\":\"#000\",\"fontSize\":12,\"fontFamily\":\"Microsoft Yahei\"},\"editor\":{\"param\":\"\",\"required\":false,\"color\":\"#000\",\"fontSize\":12,\"fontFamily\":\"Microsoft Yahei\",\"width\":150,\"height\":32,\"backgroundColor\":\"rgba(0,0,0,0)\",\"borderColor\":\"rgba(0,0,0,1)\",\"borderWidth\":1,\"borderStyle\":\"solid\",\"borderRadius\":0},\"associated\":\"\",\"value\":\"\"},\"cusData\":{\"englishName\":\"\",\"chineseName\":\"⽂本\",\"type\":\"character\",\"defaultValue\":\"\",\"linkField\":\"\"}}",
+            "componentData":"{\"englishName\":\"\",\"chineseName\":\"⽂本\",\"type\":\"character\",\"defaultValue\":\"\",\"linkField\":\"\"}",
+            "componentType": "character",
+            "creatorId": 1556088527401,
+            "guiId": "elem_character_4",
+            "modelId": null,
+            "projectId": null,
+            "reportId": 185,
+            "tenantId": null
+        },
+        {
+            "componentCss":"{\"id\":\"elem_baseTable_2\",\"type\":\"baseTable\",\"componentId\":null,\"name\":\"基础表格\",\"elemConfig\":{\"x\":0,\"y\":0,\"w\":798,\"h\":500,\"minWidth\":10,\"minHeight\":10,\"zindex\":1,\"handles\":[\"bm\"],\"draggable\":false,\"dragHandle\":\"\",\"resizable\":true,\"lockAspectRatio\":false,\"preventDeactivation\":false,\"isSwitch\":false},\"option\":{\"div\":{\"backgroundColor\":\"rgba(0,0,0,0)\",\"borderColor\":\"rgba(0,0,0,0)\",\"borderWidth\":0,\"borderStyle\":\"solid\",\"borderRadius\":0},\"title\":{\"show\":true,\"color\":\"rgba(0,0,0,0)\",\"fontSize\":14,\"fontFamily\":\"Microsoft Yahei\",\"textAlign\":\"left\",\"marginBottom\":20,\"backgroundColor\":\"rgba(0, 0, 0, 0)\"},\"table\":{\"index\":true,\"borderWidth\":1,\"borderColor\":\"#A6A6A6\",\"borderStyle\":\"solid\",\"borderX\":true,\"borderY\":true,\"thead\":{\"show\":true,\"color\":\"#fff\",\"fontSize\":14,\"fontFamily\":\"Microsoft Yahei\",\"align\":\"left\",\"backgroundColor\":\"#3D4662\",\"borderTopWidth\":0,\"borderRightWidth\":0,\"borderBottomWidth\":1,\"borderLeftWidth\":1},\"tbody\":{\"color\":\"#000\",\"fontSize\":12,\"fontFamily\":\"Microsoft Yahei\",\"align\":\"left\",\"backgroundColorOdd\":\"#F8F8FA\",\"backgroundColorEven\":\"#E1E3E7\",\"borderTopWidth\":0,\"borderRightWidth\":0,\"borderBottomWidth\":1,\"borderLeftWidth\":1,\"linefeed\":false}},\"pagination\":true},\"cusData\":{\"title\":\"表格\",\"column\":[{\"label\":\"month\",\"prop\":\"demo_fact_market_analyze__month\",\"type\":\"D\",\"tableName\":\"demo_fact_market_analyze\",\"geoRole\":0,\"fieldId\":1808,\"fieldName\":\"month\",\"labelAlias\":\"month\",\"labelAliasFlag\":false,\"id\":1808}],\"data\":[{\"demo_fact_market_analyze__month\":\"2020-01\"},{\"demo_fact_market_analyze__month\":\"2020-01\"},{\"demo_fact_market_analyze__month\":\"2020-01\"},{\"demo_fact_market_analyze__month\":\"2020-01\"},{\"demo_fact_market_analyze__month\":\"2020-02\"},{\"demo_fact_market_analyze__month\":\"2020-02\"},{\"demo_fact_market_analyze__month\":\"2020-02\"},{\"demo_fact_market_analyze__month\":\"2020-02\"},{\"demo_fact_market_analyze__month\":\"2020-03\"},{\"demo_fact_market_analyze__month\":\"2020-03\"}],\"cusChildData\":{\"column\":[],\"data\":[],\"page\":{\"index\":1,\"size\":10,\"total\":0}},\"page\":{\"index\":1,\"size\":10,\"total\":1632},\"modelData\":{\"datasetName\":\"wfx测试模型\",\"modelId\":90,\"projectId\":28,\"dataSourceId\":44,\"modelSqlText\":\"select demo_fact_market_analyze__month from (select demo_fact_market_analyze.month as demo_fact_market_analyze__month, demo_fact_market_analyze.quarter as demo_fact_market_analyze__quarter, demo_fact_market_analyze.year as demo_fact_market_analyze__year, demo_fact_market_analyze.province_code as demo_fact_market_analyze__province_code, demo_fact_market_analyze.area_name as demo_fact_market_analyze__area_name, demo_fact_market_analyze.user_type as demo_fact_market_analyze__user_type, demo_fact_market_analyze.industry_type as demo_fact_market_analyze__industry_type, demo_fact_market_analyze.user as demo_fact_market_analyze__user, demo_fact_market_analyze.user_mom as demo_fact_market_analyze__user_mom, demo_fact_market_analyze.user_yoy as demo_fact_market_analyze__user_yoy, demo_fact_market_analyze.income_amt as demo_fact_market_analyze__income_amt, demo_fact_market_analyze.income_amt_mom as demo_fact_market_analyze__income_amt_mom, demo_fact_market_analyze.income_amt_yoy as demo_fact_market_analyze__income_amt_yoy, demo_fact_market_analyze.new as demo_fact_market_analyze__new, demo_fact_market_analyze.new_mom as demo_fact_market_analyze__new_mom, demo_fact_market_analyze.new_yoy as demo_fact_market_analyze__new_yoy from demo_fact_market_analyze) as ttn \",\"creatorId\":1556088527334,\"createTime\":\"2020-07-13T13:56:56.000+0800\",\"recordState\":\"y\",\"tenantId\":7,\"modifyTime\":\"2020-09-24T14:47:16.000+0800\"},\"elemSwitch\":{\"show\":false,\"value\":false,\"elemShowIndex\":0,\"name\":\"\"},\"show\":true,\"sort\":{\"orderDirection\":\"\",\"orderFeildName\":\"\"},\"filter\":{}}}",
+            "componentData":"{\"title\":\"表格\",\"column\":[{\"label\":\"month\",\"prop\":\"demo_fact_market_analyze__month\",\"type\":\"D\",\"tableName\":\"demo_fact_market_analyze\",\"geoRole\":0,\"fieldId\":1808,\"fieldName\":\"month\",\"labelAlias\":\"month\",\"labelAliasFlag\":false,\"id\":1808}],\"data\":[{\"demo_fact_market_analyze__month\":\"2020-01\"},{\"demo_fact_market_analyze__month\":\"2020-01\"},{\"demo_fact_market_analyze__month\":\"2020-01\"},{\"demo_fact_market_analyze__month\":\"2020-01\"},{\"demo_fact_market_analyze__month\":\"2020-02\"},{\"demo_fact_market_analyze__month\":\"2020-02\"},{\"demo_fact_market_analyze__month\":\"2020-02\"},{\"demo_fact_market_analyze__month\":\"2020-02\"},{\"demo_fact_market_analyze__month\":\"2020-03\"},{\"demo_fact_market_analyze__month\":\"2020-03\"}],\"cusChildData\":{\"column\":[],\"data\":[],\"page\":{\"index\":1,\"size\":10,\"total\":0}},\"page\":{\"index\":1,\"size\":10,\"total\":1632},\"modelData\":{\"datasetName\":\"wfx测试模型\",\"modelId\":90,\"projectId\":28,\"dataSourceId\":44,\"modelSqlText\":\"select demo_fact_market_analyze__month from (select demo_fact_market_analyze.month as demo_fact_market_analyze__month, demo_fact_market_analyze.quarter as demo_fact_market_analyze__quarter, demo_fact_market_analyze.year as demo_fact_market_analyze__year, demo_fact_market_analyze.province_code as demo_fact_market_analyze__province_code, demo_fact_market_analyze.area_name as demo_fact_market_analyze__area_name, demo_fact_market_analyze.user_type as demo_fact_market_analyze__user_type, demo_fact_market_analyze.industry_type as demo_fact_market_analyze__industry_type, demo_fact_market_analyze.user as demo_fact_market_analyze__user, demo_fact_market_analyze.user_mom as demo_fact_market_analyze__user_mom, demo_fact_market_analyze.user_yoy as demo_fact_market_analyze__user_yoy, demo_fact_market_analyze.income_amt as demo_fact_market_analyze__income_amt, demo_fact_market_analyze.income_amt_mom as demo_fact_market_analyze__income_amt_mom, demo_fact_market_analyze.income_amt_yoy as demo_fact_market_analyze__income_amt_yoy, demo_fact_market_analyze.new as demo_fact_market_analyze__new, demo_fact_market_analyze.new_mom as demo_fact_market_analyze__new_mom, demo_fact_market_analyze.new_yoy as demo_fact_market_analyze__new_yoy from demo_fact_market_analyze) as ttn \",\"creatorId\":1556088527334,\"createTime\":\"2020-07-13T13:56:56.000+0800\",\"recordState\":\"y\",\"tenantId\":7,\"modifyTime\":\"2020-09-24T14:47:16.000+0800\"},\"elemSwitch\":{\"show\":false,\"value\":false,\"elemShowIndex\":0,\"name\":\"\"},\"show\":true,\"sort\":{\"orderDirection\":\"\",\"orderFeildName\":\"\"},\"filter\":{}}",
+            "componentType":"baseTable",
+            "creatorId":1556088527401,
+            "guiId":"elem_baseTable_2",
+            "modelId":90,
+            "projectId":28,
+            "reportId":185,
+            "tenantId":7
+        },
+        {
+            "componentCss":"{\"id\":\"elem_text_3\",\"type\":\"text\",\"componentId\":null,\"name\":\"⽂本\",\"elemConfig\":{\"x\":0,\"y\":0,\"w\":798,\"h\":100,\"minWidth\":10,\"minHeight\":10,\"zindex\":1,\"handles\":[\"bm\"],\"draggable\":false,\"dragHandle\":\"\",\"resizable\":true,\"lockAspectRatio\":false,\"preventDeactivation\":false},\"option\":{\"text\":\"备注：\",\"isChange\":true,\"color\":\"#000\",\"fontSize\":12,\"fontFamily\":\"Microsoft Yahei\",\"fontWeight\":\"normal\",\"fontStyle\":\"normal\",\"textDecoration\":\"none\",\"textAlign\":\"left\",\"textIndent\":0,\"lineHeight\":18,\"backgroundColor\":\"rgba(0,0,0,0)\",\"borderColor\":\"rgba(0,0,0,0)\",\"borderWidth\":0,\"borderStyle\":\"solid\",\"borderRadius\":0},\"cusData\":null}",
+            "componentData": "null",
+            "componentType": "text",
+            "creatorId": 1556088527401,
+            "guiId":"elem_text_3",
+            "modelId":null,
+            "projectId":null,
+            "reportId":185,
+            "tenantId":null
+        }
+    ],
+    "specCmLevels":[]
+}
