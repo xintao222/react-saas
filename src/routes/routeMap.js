@@ -28,7 +28,7 @@ export default [
     {
         path: '/info',
         name: 'info',
-        meta: {  title: '账号管理', roleId: ['1','2','3'] },
+        meta: {  title: '账号管理', icon: 'home', roleId: ['1','2','3'] },
         children: [
             {
                 path: "/info/information",
@@ -47,7 +47,7 @@ export default [
     {
         path: '/shop',
         name: 'shop',
-        meta: {  title: '商户管理', roleId: ['1','2'] },
+        meta: {  title: '商户管理', icon: 'shop', roleId: ['1','2'] },
         children: [
             {
                 path: "/shop/shopList",
@@ -66,7 +66,7 @@ export default [
     {
         path: '/saas',
         name: 'saas',
-        meta: {  title: '应用管理', roleId: ['1','3'] },
+        meta: {  title: '应用管理', icon: 'appstore', roleId: ['1','3'] },
         children: [
             {
                 path: "/saas/appList",

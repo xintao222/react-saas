@@ -132,7 +132,7 @@ export default class AppList extends React.Component {
     onEdit = (record,e) => {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
-        window.shopList = record;
+        window.appList = record;
         this.props.history.push(`/saas/editApp`);
     }
     jump = () => {
