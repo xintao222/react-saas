@@ -11,71 +11,40 @@ export default class AddSaasApp extends React.Component {
         isDisable: false,
         shopValue: '',
         appValue: [],
-        shopList: [
-            {
-                "userId": "100001",
-                "userName": "建行生活",
-                "password": "******",
-                "email": "jianghang@ccb.com",
-                "mobile": "18058687898",
-                "status": 1,
-                "address": "广州市天河区科韵路建工楼",
-                "remainFlow": "1150000",
-                "dailyLimit": 100,
-                "createTime": "2021-07-14 12:20:30"
-            },
-            {
-                "userId": "100002",
-                "userName": "善融商务",
-                "password": "******",
-                "email": "shanrong@ccb.com",
-                "mobile": "18058686789",
-                "status": 2,
-                "address": "广州市白云区京溪南方医院",
-                "remainFlow": "1580000",
-                "dailyLimit": 100,
-                "createTime": "2021-07-14 12:20:30"
-            },
-            {
-                "userId": "100003",
-                "userName": "手机银行",
-                "password": "******",
-                "email": "shouji@ccb.com",
-                "mobile": "18058687898",
-                "status": 1,
-                "address": "广州市海珠区环汇商业广场",
-                "remainFlow": "960000",
-                "dailyLimit": 100,
-                "createTime": "2021-07-14 12:20:30"
-            }
-        ],
-        appList: [
-            {
-                "id": "100001",
-                "appName": "清华大学",
-                "platform": 1,
-                "channel": 1,
-                "status": 1,
-                "createTime": "2021-07-14 12:20:30"
-            },
-            {
-                "id": "100002",
-                "appName": "北京大学",
-                "platform": 1,
-                "channel": 1,
-                "status": 1,
-                "createTime": "2021-07-15 12:20:30"
-            },
-            {
-                "id": "100003",
-                "appName": "中山大学",
-                "platform": 1,
-                "channel": 1,
-                "status": 1,
-                "createTime": "2021-07-16 12:20:30"
-            }
-        ]
+        shopList: [],
+        appList: []
     };
+
+    
+    getShopList = () => {
+        let params = {
+            pageNum: 1,
+            pageSize: 10
+        };
+        https.fetchGet("/yx/user/page.action", params).then(data => {
+            if (data.code === 0) {
+                console.log(data);
+                this.setState({
+                    shopList: data.data.rows
+                });
+            }
+        })
+    }
+
+    getAppList = () => {
+        let params = {
+            pageNum: 1,
+            pageSize: 10
+        };
+        https.fetchGet("/yx/endpointapp/page.action", params).then(data => {
+            if (data.code === 0) {
+                console.log(data);
+                this.setState({
+                    appList: data.data.rows
+                });
+            }
+        })
+    }
 
     shopChange = (value)=> {
         console.log(value)
@@ -124,7 +93,8 @@ export default class AddSaasApp extends React.Component {
     }
 
     componentDidMount() {
-        
+        this.getShopList();
+        this.getAppList();
     }
 
     render() {

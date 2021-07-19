@@ -3,7 +3,7 @@ import { Card,Table,Space,Button,Input,Switch,Modal,message } from 'antd';
 import https from "../../api/https";
 import { EditOutlined } from '@ant-design/icons';
 const { Search } = Input;
-export default class AppList extends React.Component {
+export default class TplList extends React.Component {
     
     state = {
         visible: false,
@@ -15,21 +15,25 @@ export default class AppList extends React.Component {
         selectedRowKeys:[],
         columns:[
             {
-                title: 'ID',
-                dataIndex: 'id',
+                title: '模板ID',
+                dataIndex: 'tplId',
                 ellipsis: true,
             },
             {
-                title: 'App名称',
-                dataIndex: 'appName',
+                title: '模板名称',
+                dataIndex: 'tplName',
             },
             {
-                title: '平台',
-                dataIndex: 'platform',
+                title: '模板内容',
+                dataIndex: 'content',
             },
             {  
-                title: '渠道',
-                dataIndex: 'channel',
+                title: '是否默认模板',
+                dataIndex: 'isDefault',
+            },
+            {  
+                title: '所属App',
+                dataIndex: 'ownerAppKey',
             },
             {
               title: '状态',
@@ -46,8 +50,8 @@ export default class AppList extends React.Component {
               ),
             },
             {  
-                title: '创建时间',
-                dataIndex: 'createTime',
+                title: '每日发送限制',
+                dataIndex: 'limitNum',
             },
             {
               title: '操作',
@@ -154,7 +158,7 @@ export default class AppList extends React.Component {
                     className="search"
                     onSearch={value => this.searchList(value)}
                 />
-                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建应用</Button>
+                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>创建应用</Button>
                 <Table
                     rowKey={item => item.id }
                     columns={columns}

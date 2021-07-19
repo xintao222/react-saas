@@ -28,10 +28,10 @@ export default class SaasAppList extends React.Component {
                 dataIndex: 'endpointAppId',
                 ellipsis: true,
             },
-            // {
-            //     title: '应用名称',
-            //     dataIndex: 'appName',
-            // },
+            {
+                title: '应用名称',
+                dataIndex: 'appName',
+            },
             {
               title: '状态',
               textWrap: 'word-break',
@@ -50,15 +50,15 @@ export default class SaasAppList extends React.Component {
                 title: '创建时间',
                 dataIndex: 'createTime',
             },
-            {
-              title: '操作',
-              key: 'action',
-              render: record => (
-                <Space size="middle">
-                  <Button type="primary" onClick={(e) => this.onEdit(record,e)} icon={<EditOutlined />} size="size" />
-                </Space>
-              ),
-            },
+            // {
+            //   title: '操作',
+            //   key: 'action',
+            //   render: record => (
+            //     <Space size="middle">
+            //       <Button type="primary" onClick={(e) => this.onEdit(record,e)} icon={<EditOutlined />} size="size" />
+            //     </Space>
+            //   ),
+            // }
         ],
     }
 
@@ -134,10 +134,10 @@ export default class SaasAppList extends React.Component {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
         window.appList = record;
-        this.props.history.push(`/app/editApp`);
+        this.props.history.push(`/saasapp/editSaasApp`);
     }
     jump = () => {
-        this.props.history.push(`/app/addApp`);
+        this.props.history.push(`/saasapp/addSaasApp`);
     }
     goPage = index => {
         this.getList(index);
@@ -155,7 +155,7 @@ export default class SaasAppList extends React.Component {
                     className="search"
                     onSearch={value => this.searchList(value)}
                 />
-                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>创建应用</Button>
+                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建应用</Button>
                 <Table
                     rowKey={item => item.id }
                     columns={columns}
@@ -171,6 +171,7 @@ export default class SaasAppList extends React.Component {
                 />
                 <Modal
                 title="提示"
+                width={300}
                 okText="确定"
                 cancelText="取消"
                 visible={this.state.visible}

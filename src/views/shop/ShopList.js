@@ -166,7 +166,7 @@ export default class ShopList extends React.Component {
                     className="search"
                     onSearch={value => this.searchList(value)}
                 />
-                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>创建商户</Button>
+                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建商户</Button>
                 <Table
                     rowKey={item => item.userId }
                     columns={columns}
@@ -182,6 +182,7 @@ export default class ShopList extends React.Component {
                 />
                 <Modal
                 title="提示"
+                width={300}
                 okText="确定"
                 cancelText="取消"
                 visible={this.state.visible}
