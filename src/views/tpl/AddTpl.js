@@ -1,7 +1,9 @@
 import React from 'react';
-import { Card,Form,Button,Input,Radio,message } from 'antd';
+import { Card,Form,Button,Input,Radio,Select,message } from 'antd';
 import https from "../../api/https";
 import "../../styles/other.css";
+
+const { Option } = Select;
 
 const formItemLayout = {
     labelCol: { span: 0 },
@@ -86,7 +88,7 @@ export default class AddTpl extends React.Component {
         const { isDisable } = this.state
         
         return (
-            <Card title="应用管理" bordered={false}>
+            <Card title="模板管理" bordered={false}>
 
                 <Form
                     name="form"
@@ -94,32 +96,48 @@ export default class AddTpl extends React.Component {
                     {...formItemLayout}
                     onFinish={this.onFinish}
                 >
-                    <Form.Item label="&emsp;&emsp;&emsp;ID">
-                        <Form.Item name="id" noStyle>
+                    <Form.Item label="&emsp;&emsp;&emsp;模板ID">
+                        <Form.Item name="tplId" noStyle>
                             <Input />
                         </Form.Item>
                     </Form.Item>
-                    <Form.Item label="App名称">
-                        <Form.Item name="appName" noStyle>
+                    <Form.Item label="&emsp;&emsp;模板名称">
+                        <Form.Item name="tplName" noStyle>
                             <Input />
                         </Form.Item>
                         {/* <div className="labelInfo">支持输入数字、字母，最多10个字符</div> */}
                     </Form.Item>
-                    <Form.Item label="&emsp;&emsp;平台">
-                        <Form.Item name="platform" noStyle>
-                            <Input />
+                    <Form.Item label="&emsp;&emsp;模板内容">
+                        <Form.Item name="content" noStyle>
+                            <Input.TextArea autoSize={{minRows: 4}} />
                         </Form.Item>
                     </Form.Item>
-                    <Form.Item label="&emsp;&emsp;渠道">
-                        <Form.Item name="channel" noStyle>
-                            <Input />
-                        </Form.Item>
-                    </Form.Item>
-                    <Form.Item name="status" label="&emsp;&emsp;状态">
+                    <Form.Item name="status" label="是否默认模板">
                         <Radio.Group>
-                            <Radio value="1">可用</Radio>
-                            <Radio value="2">不可用</Radio>
+                            <Radio value="1">是</Radio>
+                            <Radio value="2">否</Radio>
                         </Radio.Group>
+                    </Form.Item>
+                    <Form.Item label="&emsp;&emsp;所属应用">
+                        <Select
+                            size="large"
+                            placeholder="请选择应用"
+                            style={{ minWidth: 200,width: 'auto',marginRight:20 }}
+                        >
+                            <Option key="1">App1</Option>
+                            <Option key="2">App2</Option>
+                        </Select>
+                    </Form.Item>
+                    <Form.Item name="enable" label="&emsp;&emsp;是否可用">
+                        <Radio.Group>
+                            <Radio value="1">是</Radio>
+                            <Radio value="2">否</Radio>
+                        </Radio.Group>
+                    </Form.Item>
+                    <Form.Item label="每日发送限制">
+                        <Form.Item name="limitNum" noStyle>
+                            <Input />
+                        </Form.Item>
                     </Form.Item>
 
                     <Form.Item wrapperCol={{ span: 12, offset: 9}}>

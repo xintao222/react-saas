@@ -137,10 +137,10 @@ export default class TplList extends React.Component {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
         window.appList = record;
-        this.props.history.push(`/app/editApp`);
+        this.props.history.push(`/tpl/editTpl`);
     }
     jump = () => {
-        this.props.history.push(`/app/addApp`);
+        this.props.history.push(`/tpl/addTpl`);
     }
     goPage = index => {
         this.getList(index);
@@ -151,14 +151,14 @@ export default class TplList extends React.Component {
     render() {
         const { list,current,pageSize,pageTotal,columns } = this.state
         return (
-            <Card title="应用管理" bordered={false}>
+            <Card title="模板管理" bordered={false}>
                 <Search
                     placeholder="请输入搜索关键词"
                     enterButton="查询"
                     className="search"
                     onSearch={value => this.searchList(value)}
                 />
-                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>创建应用</Button>
+                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建模板</Button>
                 <Table
                     rowKey={item => item.id }
                     columns={columns}

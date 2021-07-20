@@ -154,7 +154,7 @@ export default class AppList extends React.Component {
                     className="search"
                     onSearch={value => this.searchList(value)}
                 />
-                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建应用</Button>
+                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建模板</Button>
                 <Table
                     rowKey={item => item.id }
                     columns={columns}
