@@ -25,6 +25,8 @@ export default class TplList extends React.Component {
             },
             {
                 title: '模板内容',
+                width: 200,
+                ellipsis: true,
                 dataIndex: 'content',
             },
             {  
@@ -43,7 +45,7 @@ export default class TplList extends React.Component {
                     <Switch 
                         checkedChildren="可用" 
                         unCheckedChildren="不可用" 
-                        checked={record.status==1?true:false}
+                        checked={record.enable==1?true:false}
                         onClick={()=> this.onSwitch(record)} 
                     />
                 </Space>
@@ -73,11 +75,11 @@ export default class TplList extends React.Component {
     }
     handleOk = () => {
         let params = {
-            id: this.state.record.id,
-            status: this.state.record.status==1?2:1
+            tplId: this.state.record.tplId,
+            enable: this.state.record.enable==1?2:1
         }
         console.log(params);
-        https.fetchPost("/yx/endpointapp/updateStatus.action", params).then(data => {
+        https.fetchPost("/yx/msgtemplate/updateStatus.action", params).then(data => {
             if (data.code === 0) {
                 message.success("更新成功");
                 this.getList(1);
@@ -100,7 +102,7 @@ export default class TplList extends React.Component {
             pageNum: index,
             pageSize: 10
         };
-        https.fetchGet("/yx/endpointapp/page.action", params).then(data => {
+        https.fetchGet("/yx/msgtemplate/page.action", params).then(data => {
             if (data.code === 0) {
                 console.log(data);
                 this.setState({
@@ -120,7 +122,7 @@ export default class TplList extends React.Component {
         let params = {
             id: val,
         };
-        https.fetchGet("/yx/endpointapp/getById", params).then(data => {
+        https.fetchGet("/yx/msgtemplate/getById", params).then(data => {
             if (data.code === 0) {
                 console.log(data);
                 return;
@@ -136,7 +138,7 @@ export default class TplList extends React.Component {
     onEdit = (record,e) => {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
-        window.appList = record;
+        window.tplList = record;
         this.props.history.push(`/tpl/editTpl`);
     }
     jump = () => {
@@ -160,7 +162,7 @@ export default class TplList extends React.Component {
                 />
                 <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建模板</Button>
                 <Table
-                    rowKey={item => item.id }
+                    rowKey={item => item.tplId }
                     columns={columns}
                     customRow={"setRow"}
                     dataSource={list}

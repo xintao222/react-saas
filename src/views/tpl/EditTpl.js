@@ -1,7 +1,9 @@
 import React from 'react';
-import { Card,Form,Button,Input,message } from 'antd';
+import { Card,Form,Button,Input,Radio,Select,message } from 'antd';
 import https from "../../api/https";
 import "../../styles/other.css";
+
+const { Option } = Select;
 
 const formItemLayout = {
     labelCol: { span: 0 },
@@ -22,50 +24,47 @@ export default class AddTpl extends React.Component {
 
     onFinish = values =>{
         
-        if (!values.id) {
-            message.error("请输入ID");
+        if (!values.tplId) {
+            message.error("请输入模板ID");
             return false;
         }
-        if (!values.appName) {
-            message.error("请输入App名称");
+        if (!values.tplName) {
+            message.error("请输入模板名称");
             return false;
         }
         let tempName = 0;
-        for (var k = 0; k < values.appName.length; k++) {
-            if(/[\u4e00-\u9fa5]/.test(values.appName[k])) tempName += 2;
+        for (var k = 0; k < values.tplName.length; k++) {
+            if(/[\u4e00-\u9fa5]/.test(values.tplName[k])) tempName += 2;
             else tempName++;
         }
-        if(tempName>50){
-            message.error("App名称字数不超过25个汉字或50个字母");
+        if(tempName>20){
+            message.error("模板名称字数不超过10个汉字或20个字母");
             return false;
         }
-        if (!values.platform) {
-            message.error("请输入平台");
+        if (!values.content) {
+            message.error("请输入模板内容");
             return false;
         }
-        if (!values.channel) {
-            message.error("请输入渠道");
-            return false;
-        }
-        console.log(values)
         
         let params = {
-            id: values.id,
-            appName: values.appName,
-            platform: values.platform,
-            email: values.email,
-            channel: values.channel,
-            status: values.status,
+            tplId: values.tplId,
+            tplName: values.tplName,
+            content: values.content,
+            isDefault: +values.isDefault,
+            ownerAppKey: values.ownerAppKey,
+            enable: +values.enable,
+            limitNum: values.limitNum
         }
+        console.log(params)
 
         this.setState({ isDisable: true });
-        https.fetchPost("/yx/endpointapp/update.action", params)
+        https.fetchPost("/yx/msgtemplate/update.action", params)
         .then(data => {
             this.setState({ isDisable: false });
             console.log(data)
             if (data.code == 0) {
                 message.success("更新成功");
-                this.props.history.push(`/app/appList`);
+                this.props.history.push(`/tpl/tplList`);
             }
             else message.error("更新失败");
         })
@@ -74,22 +73,25 @@ export default class AddTpl extends React.Component {
     componentDidMount() {
 
         this.formRef.current.setFieldsValue({
-            id: '',
-            appName: '',
-            platform: '',
-            email: '',
-            channel: '',
-            status: '1'
+            tplId: '',
+            tplName: '',
+            content: '',
+            isDefault: '1',
+            ownerAppKey: '',
+            enable: '1',
+            limitNum: ''
         });
-        console.log(window.appList)
-        if(window.appList){
-            let data = window.appList;
+        console.log(window.tplList)
+        if(window.tplList){
+            let data = window.tplList;
             this.formRef.current.setFieldsValue({
-                id: data.id,
-                appName: data.appName,
-                platform: data.platform,
-                channel: data.channel,
-                status: data.status
+                tplId: data.tplId,
+                tplName: data.tplName,
+                content: data.content,
+                isDefault: data.isDefault || '1',
+                ownerAppKey: data.ownerAppKey,
+                enable: data.enable || '1',
+                limitNum: data.limitNum
             });
         }
     }
@@ -98,7 +100,7 @@ export default class AddTpl extends React.Component {
         const { isDisable } = this.state
         
         return (
-            <Card title="应用管理" bordered={false}>
+            <Card title="模板管理" bordered={false}>
 
                 <Form
                     name="form"
@@ -106,33 +108,48 @@ export default class AddTpl extends React.Component {
                     {...formItemLayout}
                     onFinish={this.onFinish}
                 >
-                    <Form.Item label="&emsp;&emsp;&emsp;ID">
-                        <Form.Item name="id" noStyle>
+                    <Form.Item label="&emsp;&emsp;&emsp;模板ID">
+                        <Form.Item name="tplId" noStyle>
                             <Input disabled />
                         </Form.Item>
                     </Form.Item>
-                    <Form.Item label="App名称">
-                        <Form.Item name="appName" noStyle>
+                    <Form.Item label="&emsp;&emsp;模板名称">
+                        <Form.Item name="tplName" noStyle>
                             <Input />
                         </Form.Item>
                         {/* <div className="labelInfo">支持输入数字、字母，最多10个字符</div> */}
                     </Form.Item>
-                    <Form.Item label="&emsp;&emsp;平台">
-                        <Form.Item name="platform" noStyle>
-                            <Input />
+                    <Form.Item label="&emsp;&emsp;模板内容">
+                        <Form.Item name="content" noStyle>
+                            <Input.TextArea autoSize={{minRows: 4}} />
                         </Form.Item>
                     </Form.Item>
-                    <Form.Item label="&emsp;&emsp;渠道">
-                        <Form.Item name="channel" noStyle>
-                            <Input />
-                        </Form.Item>
-                    </Form.Item>
-                    {/* <Form.Item name="status" label="&emsp;&emsp;状态">
+                    <Form.Item name="isDefault" label="是否默认模板">
                         <Radio.Group>
-                            <Radio value="1">可用</Radio>
-                            <Radio value="2">不可用</Radio>
+                            <Radio value="1">是</Radio>
+                            <Radio value="2">否</Radio>
+                        </Radio.Group>
+                    </Form.Item>
+                    <Form.Item name="ownerAppKey" label="&emsp;&emsp;所属应用">
+                        <Select
+                            placeholder="请选择应用"
+                            style={{ minWidth: 160,width: 'auto',marginRight:20 }}
+                        >
+                            <Option key="1">App1</Option>
+                            <Option key="2">App2</Option>
+                        </Select>
+                    </Form.Item>
+                    {/* <Form.Item name="enable" label="&emsp;&emsp;是否可用">
+                        <Radio.Group>
+                            <Radio value="1">是</Radio>
+                            <Radio value="2">否</Radio>
                         </Radio.Group>
                     </Form.Item> */}
+                    <Form.Item label="每日发送限制">
+                        <Form.Item name="limitNum" noStyle>
+                            <Input />
+                        </Form.Item>
+                    </Form.Item>
 
                     <Form.Item wrapperCol={{ span: 12, offset: 9}}>
                         <Button type="primary" disabled={isDisable} htmlType="submit">

@@ -24,50 +24,47 @@ export default class AddTpl extends React.Component {
 
     onFinish = values =>{
         
-        if (!values.id) {
-            message.error("请输入ID");
+        if (!values.tplId) {
+            message.error("请输入模板ID");
             return false;
         }
-        if (!values.appName) {
-            message.error("请输入App名称");
+        if (!values.tplName) {
+            message.error("请输入模板名称");
             return false;
         }
         let tempName = 0;
-        for (var k = 0; k < values.appName.length; k++) {
-            if(/[\u4e00-\u9fa5]/.test(values.appName[k])) tempName += 2;
+        for (var k = 0; k < values.tplName.length; k++) {
+            if(/[\u4e00-\u9fa5]/.test(values.tplName[k])) tempName += 2;
             else tempName++;
         }
-        if(tempName>50){
-            message.error("App名称字数不超过25个汉字或50个字母");
+        if(tempName>20){
+            message.error("模板名称字数不超过10个汉字或20个字母");
             return false;
         }
-        if (!values.platform) {
-            message.error("请输入平台");
+        if (!values.content) {
+            message.error("请输入模板内容");
             return false;
         }
-        if (!values.channel) {
-            message.error("请输入渠道");
-            return false;
-        }
-        console.log(values)
         
         let params = {
-            id: values.id,
-            appName: values.appName,
-            platform: values.platform,
-            email: values.email,
-            channel: values.channel,
-            status: values.status,
+            tplId: values.tplId,
+            tplName: values.tplName,
+            content: values.content,
+            isDefault: +values.isDefault,
+            ownerAppKey: values.ownerAppKey,
+            enable: +values.enable,
+            limitNum: values.limitNum
         }
+        console.log(params)
 
         this.setState({ isDisable: true });
-        https.fetchPost("/yx/endpointapp/add.action", params)
+        https.fetchPost("/yx/msgtemplate/add.action", params)
         .then(data => {
             this.setState({ isDisable: false });
             console.log(data)
             if (data.code == 0) {
                 message.success("创建成功");
-                this.props.history.push(`/app/appList`);
+                this.props.history.push(`/tpl/tplList`);
             }
             else message.error("创建失败");
         })
@@ -76,11 +73,13 @@ export default class AddTpl extends React.Component {
     componentDidMount() {
 
         this.formRef.current.setFieldsValue({
-            id: '',
-            appName: '',
-            platform: '',
-            channel: '',
-            status: '1'
+            tplId: '',
+            tplName: '',
+            content: '',
+            isDefault: '1',
+            ownerAppKey: '',
+            enable: '1',
+            limitNum: ''
         });
     }
 
@@ -112,17 +111,16 @@ export default class AddTpl extends React.Component {
                             <Input.TextArea autoSize={{minRows: 4}} />
                         </Form.Item>
                     </Form.Item>
-                    <Form.Item name="status" label="是否默认模板">
+                    <Form.Item name="isDefault" label="是否默认模板">
                         <Radio.Group>
                             <Radio value="1">是</Radio>
                             <Radio value="2">否</Radio>
                         </Radio.Group>
                     </Form.Item>
-                    <Form.Item label="&emsp;&emsp;所属应用">
+                    <Form.Item name="ownerAppKey" label="&emsp;&emsp;所属应用">
                         <Select
-                            size="large"
                             placeholder="请选择应用"
-                            style={{ minWidth: 200,width: 'auto',marginRight:20 }}
+                            style={{ minWidth: 160,width: 'auto',marginRight:20 }}
                         >
                             <Option key="1">App1</Option>
                             <Option key="2">App2</Option>
