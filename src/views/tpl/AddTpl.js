@@ -129,7 +129,7 @@ export default class AddTpl extends React.Component {
                     <Form.Item name="enable" label="&emsp;&emsp;是否可用">
                         <Radio.Group>
                             <Radio value="1">是</Radio>
-                            <Radio value="2">否</Radio>
+                            <Radio value="0">否</Radio>
                         </Radio.Group>
                     </Form.Item>
                     <Form.Item label="每日发送限制">

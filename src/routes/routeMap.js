@@ -9,6 +9,8 @@ const AppList = Loadable({loader: () => import('../views/app/AppList'),loading: 
 const AddApp = Loadable({loader: () => import('../views/app/AddApp'),loading: Loading});
 const TplList = Loadable({loader: () => import('../views/tpl/TplList'),loading: Loading});
 const AddTpl = Loadable({loader: () => import('../views/tpl/AddTpl'),loading: Loading});
+const TargetList = Loadable({loader: () => import('../views/target/TargetList'),loading: Loading});
+const AddTarget = Loadable({loader: () => import('../views/target/AddTarget'),loading: Loading});
 const Information = Loadable({loader: () => import('../views/info/Information'),loading: Loading});
 const Setting = Loadable({loader: () => import('../views/info/Setting'),loading: Loading});
 
@@ -105,6 +107,25 @@ export default [
                 name: "addTpl",
                 component: AddTpl,
                 meta: { title: "新建模板" }
+            }
+        ]
+    },
+    {
+        path: '/target',
+        name: 'target',
+        meta: {  title: '跳转链接管理', icon: 'appstore', roleId: ['1','3'] },
+        children: [
+            {
+                path: "/target/targetList",
+                name: "targetList",
+                component: TargetList,
+                meta: { title: "跳转链接列表" }
+            },
+            {
+                path: "/target/addTarget",
+                name: "addTarget",
+                component: AddTarget,
+                meta: { title: "新建跳转链接" }
             }
         ]
     }
