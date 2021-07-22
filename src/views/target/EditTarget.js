@@ -43,10 +43,8 @@ export default class AddTarget extends React.Component {
         
         let params = {
             targetId: values.targetId,
-            jumptype: +values.jumptype,
             target: values.target,
-            btnnm: values.btnnm,
-            status: +values.status
+            btnnm: values.btnnm
         }
         console.log(params)
 
@@ -77,10 +75,10 @@ export default class AddTarget extends React.Component {
             let data = window.targetList;
             this.formRef.current.setFieldsValue({
                 targetId: data.targetId,
-                jumptype: data.jumptype || '1',
+                jumptype: data.jumptype? (data.jumptype+'') : '1',
                 target: data.target,
                 btnnm: data.btnnm,
-                status: data.status || '1'
+                status: data.status? (data.status+'') : '1',
             });
         }
     }

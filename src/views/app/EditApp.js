@@ -55,7 +55,7 @@ export default class AddApp extends React.Component {
             platform: values.platform,
             email: values.email,
             channel: values.channel,
-            status: values.status,
+            status: +values.status,
         }
 
         this.setState({ isDisable: true });
@@ -89,7 +89,7 @@ export default class AddApp extends React.Component {
                 appName: data.appName,
                 platform: data.platform,
                 channel: data.channel,
-                status: data.status
+                status: data.status? (data.status+'') : '1',
             });
         }
     }

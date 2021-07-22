@@ -34,7 +34,7 @@ export default class TplList extends React.Component {
                 dataIndex: 'isDefault',
             },
             {  
-                title: '所属App',
+                title: '所属应用ID',
                 dataIndex: 'ownerAppKey',
             },
             {

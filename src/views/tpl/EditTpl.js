@@ -15,7 +15,8 @@ export default class AddTpl extends React.Component {
     formRef = React.createRef();
 
     state = {
-        isDisable: false
+        isDisable: false,
+        appList: []
     };
 
     jump = () => {
@@ -70,7 +71,23 @@ export default class AddTpl extends React.Component {
         })
     }
 
+    getAppList = () => {
+        let params = {
+            pageNum: 1,
+            pageSize: 10
+        };
+        https.fetchGet("/yx/endpointapp/page.action", params).then(data => {
+            if (data.code === 0) {
+                this.setState({
+                    appList: data.data.rows
+                });
+            }
+        })
+    }
+
     componentDidMount() {
+
+        this.getAppList();
 
         this.formRef.current.setFieldsValue({
             tplId: '',
@@ -88,16 +105,16 @@ export default class AddTpl extends React.Component {
                 tplId: data.tplId,
                 tplName: data.tplName,
                 content: data.content,
-                isDefault: data.isDefault || '1',
+                isDefault: data.isDefault? (data.isDefault+'') : '1',
                 ownerAppKey: data.ownerAppKey,
-                enable: data.enable || '1',
+                enable: data.enable? (data.enable+'') : '1',
                 limitNum: data.limitNum
             });
         }
     }
 
     render() {
-        const { isDisable } = this.state
+        const { appList, isDisable } = this.state
         
         return (
             <Card title="模板管理" bordered={false}>
@@ -117,7 +134,6 @@ export default class AddTpl extends React.Component {
                         <Form.Item name="tplName" noStyle>
                             <Input />
                         </Form.Item>
-                        {/* <div className="labelInfo">支持输入数字、字母，最多10个字符</div> */}
                     </Form.Item>
                     <Form.Item label="&emsp;&emsp;模板内容">
                         <Form.Item name="content" noStyle>
@@ -135,8 +151,13 @@ export default class AddTpl extends React.Component {
                             placeholder="请选择应用"
                             style={{ minWidth: 160,width: 'auto',marginRight:20 }}
                         >
-                            <Option key="1">App1</Option>
-                            <Option key="2">App2</Option>
+                            {
+                                appList.map((item,idx) =>{
+                                    return (
+                                        <Option key={item.id}>{item.appName}</Option>
+                                    );
+                                })
+                            }
                         </Select>
                     </Form.Item>
                     {/* <Form.Item name="enable" label="&emsp;&emsp;是否可用">

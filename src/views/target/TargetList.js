@@ -65,7 +65,7 @@ export default class TargetList extends React.Component {
     }
     handleOk = () => {
         let params = {
-            tplId: this.state.record.tplId,
+            targetId: this.state.record.targetId,
             enable: this.state.record.enable==1?2:1
         }
         console.log(params);
@@ -128,7 +128,7 @@ export default class TargetList extends React.Component {
     onEdit = (record,e) => {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
-        window.tplList = record;
+        window.targetList = record;
         this.props.history.push(`/target/editTarget`);
     }
     jump = () => {
@@ -152,7 +152,7 @@ export default class TargetList extends React.Component {
                 />
                 <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建</Button>
                 <Table
-                    rowKey={item => item.tplId }
+                    rowKey={item => item.targetId }
                     columns={columns}
                     customRow={"setRow"}
                     dataSource={list}

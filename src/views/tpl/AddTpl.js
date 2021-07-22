@@ -15,7 +15,8 @@ export default class AddTpl extends React.Component {
     formRef = React.createRef();
 
     state = {
-        isDisable: false
+        isDisable: false,
+        appList: []
     };
 
     jump = () => {
@@ -70,7 +71,23 @@ export default class AddTpl extends React.Component {
         })
     }
 
+    getAppList = () => {
+        let params = {
+            pageNum: 1,
+            pageSize: 10
+        };
+        https.fetchGet("/yx/endpointapp/page.action", params).then(data => {
+            if (data.code === 0) {
+                this.setState({
+                    appList: data.data.rows
+                });
+            }
+        })
+    }
+
     componentDidMount() {
+
+        this.getAppList();
 
         this.formRef.current.setFieldsValue({
             tplId: '',
@@ -84,7 +101,7 @@ export default class AddTpl extends React.Component {
     }
 
     render() {
-        const { isDisable } = this.state
+        const { appList, isDisable } = this.state
         
         return (
             <Card title="模板管理" bordered={false}>
@@ -122,8 +139,13 @@ export default class AddTpl extends React.Component {
                             placeholder="请选择应用"
                             style={{ minWidth: 160,width: 'auto',marginRight:20 }}
                         >
-                            <Option key="1">App1</Option>
-                            <Option key="2">App2</Option>
+                            {
+                                appList.map((item,idx) =>{
+                                    return (
+                                        <Option key={item.id}>{item.appName}</Option>
+                                    );
+                                })
+                            }
                         </Select>
                     </Form.Item>
                     <Form.Item name="enable" label="&emsp;&emsp;是否可用">

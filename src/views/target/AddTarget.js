@@ -10,7 +10,7 @@ const formItemLayout = {
     wrapperCol: { span: 10 },
 };
 
-export default class AddTpl extends React.Component {
+export default class AddTarget extends React.Component {
     
     formRef = React.createRef();
 
