@@ -25,7 +25,11 @@ export default class AppList extends React.Component {
             },
             {
                 title: '平台',
-                dataIndex: 'platform',
+                render: record => (
+                    <Space size="middle">
+                        {this.getPlatform(record.platform)}
+                    </Space>
+                ),
             },
             {  
                 title: '渠道',
@@ -59,6 +63,27 @@ export default class AppList extends React.Component {
               ),
             },
         ],
+    }
+
+    
+    getPlatform = type => {
+        let result = '';
+        type = +type;
+        switch(type) {
+            case 1: {
+                result = '私有云';
+                break;
+            }
+            case 2: {
+                result = '公有云';
+                break;
+            }
+            default:{
+            	result = '';
+                break;
+            }
+        }
+        return result;
     }
 
     onSwitch = record => {

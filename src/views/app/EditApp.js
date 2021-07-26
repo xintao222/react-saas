@@ -1,7 +1,9 @@
 import React from 'react';
-import { Card,Form,Button,Input,message } from 'antd';
+import { Card,Form,Button,Input,Radio,Select,message } from 'antd';
 import https from "../../api/https";
 import "../../styles/other.css";
+
+const { Option } = Select;
 
 const formItemLayout = {
     labelCol: { span: 0 },
@@ -87,7 +89,7 @@ export default class AddApp extends React.Component {
             this.formRef.current.setFieldsValue({
                 id: data.id,
                 appName: data.appName,
-                platform: data.platform,
+                platform: data.platform? (data.platform+'') : '',
                 channel: data.channel,
                 status: data.status? (data.status+'') : '1',
             });
@@ -117,10 +119,14 @@ export default class AddApp extends React.Component {
                         </Form.Item>
                         {/* <div className="labelInfo">支持输入数字、字母，最多10个字符</div> */}
                     </Form.Item>
-                    <Form.Item label="&emsp;&emsp;平台">
-                        <Form.Item name="platform" noStyle>
-                            <Input />
-                        </Form.Item>
+                    <Form.Item name="platform" label="&emsp;&emsp;平台">
+                        <Select
+                            placeholder="请选择"
+                            style={{ minWidth: 160,width: 'auto',marginRight:20 }}
+                        >
+                            <Option key="1">私有云</Option>
+                            <Option key="2">公有云</Option>
+                        </Select>
                     </Form.Item>
                     <Form.Item label="&emsp;&emsp;渠道">
                         <Form.Item name="channel" noStyle>

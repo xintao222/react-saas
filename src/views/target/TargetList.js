@@ -21,7 +21,11 @@ export default class TargetList extends React.Component {
             },
             {
                 title: '跳转类型',
-                dataIndex: 'jumptype',
+                render: record => (
+                    <Space size="middle">
+                        {this.getJumpType(record.jumptype)}
+                    </Space>
+                ),
             },
             {
                 title: '目标链接',
@@ -55,6 +59,26 @@ export default class TargetList extends React.Component {
               ),
             },
         ],
+    }
+
+    getJumpType = type => {
+        let result = '';
+        type = +type;
+        switch(type) {
+            case 1: {
+                result = 'url';
+                break;
+            }
+            case 2: {
+                result = '功能页';
+                break;
+            }
+            default:{
+            	result = '';
+                break;
+            }
+        }
+        return result;
     }
 
     onSwitch = record => {
