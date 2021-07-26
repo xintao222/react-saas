@@ -13,6 +13,8 @@ const TargetList = Loadable({loader: () => import('../views/target/TargetList'),
 const AddTarget = Loadable({loader: () => import('../views/target/AddTarget'),loading: Loading});
 const CreditList = Loadable({loader: () => import('../views/credit/CreditList'),loading: Loading});
 const AddCredit = Loadable({loader: () => import('../views/credit/AddCredit'),loading: Loading});
+const CreditRecordList = Loadable({loader: () => import('../views/creditrecord/CreditRecordList'),loading: Loading});
+const AddCreditRecord = Loadable({loader: () => import('../views/creditrecord/AddCreditRecord'),loading: Loading});
 
 const EditShop = Loadable({loader: () => import('../views/shop/EditShop'),loading: Loading});
 const EditApp = Loadable({loader: () => import('../views/app/EditApp'),loading: Loading});
@@ -167,6 +169,25 @@ export const AsyncRouterMap =  [
                 name: "addCredit",
                 component: AddCredit,
                 meta: { title: "新建套餐" }
+            }
+        ]
+    },
+    {
+        path: '/creditrecord',
+        name: 'creditrecord',
+        meta: {  title: '套餐订购管理', icon: 'appstore', roleId: ['1','3'] },
+        children: [
+            {
+                path: "/creditrecord/creditRecordList",
+                name: "creditRecordList",
+                component: CreditRecordList,
+                meta: { title: "套餐订购列表" }
+            },
+            {
+                path: "/creditrecord/addCreditRecord",
+                name: "addCreditRecord",
+                component: AddCreditRecord,
+                meta: { title: "新建" }
             }
         ]
     }
