@@ -2,8 +2,7 @@ import React, {Component} from 'react'
 import { Layout,Modal } from 'antd';
 import moment from 'moment';
 import Routes from './routes';
-import routeMap from "./routes/routeMap";
-import staticRoute from "./routes/staticRoute";
+import { StaticRouterMap, AsyncRouterMap } from "./routes/routeMap";
 import Aside from './components/Aside';
 import https from "./api/https";
 import './utils';
@@ -78,8 +77,8 @@ export default class App extends Component {
       if (data.code === 200) {
         let roleId = data.data.roleId+'';
         //初始化路由
-        let routeList = this.routerInit(roleId,routeMap);
-        let menuList = this.menuInit(roleId,routeMap);
+        let routeList = this.routerInit(roleId,AsyncRouterMap);
+        let menuList = this.menuInit(roleId,AsyncRouterMap);
         console.log(menuList)
         this.setState({
           routeList,
@@ -94,9 +93,9 @@ export default class App extends Component {
     //this.getRoleId();
 
     //初始化路由
-    let routeList = this.routerInit('1',routeMap);
-    routeList = routeList.concat(staticRoute);
-    let menuList = this.menuInit('1',routeMap);
+    let routeList = this.routerInit('1',AsyncRouterMap);
+    routeList = routeList.concat(StaticRouterMap);
+    let menuList = this.menuInit('1',AsyncRouterMap);
     this.setState({
       routeList,
       menuList

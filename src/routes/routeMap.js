@@ -11,29 +11,51 @@ const TplList = Loadable({loader: () => import('../views/tpl/TplList'),loading: 
 const AddTpl = Loadable({loader: () => import('../views/tpl/AddTpl'),loading: Loading});
 const TargetList = Loadable({loader: () => import('../views/target/TargetList'),loading: Loading});
 const AddTarget = Loadable({loader: () => import('../views/target/AddTarget'),loading: Loading});
-const Information = Loadable({loader: () => import('../views/info/Information'),loading: Loading});
-const Setting = Loadable({loader: () => import('../views/info/Setting'),loading: Loading});
+const CreditList = Loadable({loader: () => import('../views/credit/CreditList'),loading: Loading});
+const AddCredit = Loadable({loader: () => import('../views/credit/AddCredit'),loading: Loading});
 
-export default [
-    // {
-    //     path: '/info',
-    //     name: 'info',
-    //     meta: {  title: '账号管理', icon: 'home', roleId: ['1','2','3'] },
-    //     children: [
-    //         {
-    //             path: "/info/information",
-    //             name: "information",
-    //             component: Information,
-    //             meta: { title: "基本信息" }
-    //         },
-    //         {
-    //             path: "/info/setting",
-    //             name: "setting",
-    //             component: Setting,
-    //             meta: { title: "账号设置" }
-    //         }
-    //     ]
-    // },
+const EditShop = Loadable({loader: () => import('../views/shop/EditShop'),loading: Loading});
+const EditApp = Loadable({loader: () => import('../views/app/EditApp'),loading: Loading});
+const EditTpl = Loadable({loader: () => import('../views/tpl/EditTpl'),loading: Loading});
+const EditTarget = Loadable({loader: () => import('../views/target/EditTarget'),loading: Loading});
+const EditCredit = Loadable({loader: () => import('../views/credit/EditCredit'),loading: Loading});
+
+
+
+export const StaticRouterMap = [
+    {
+        path: "/shop/editShop",
+        name: "editShop",
+        component: EditShop,
+        meta: { title: "修改商户" }
+    },
+    {
+        path: "/app/editApp",
+        name: "editApp",
+        component: EditApp,
+        meta: { title: "修改应用" }
+    },
+    {
+        path: "/tpl/editTpl",
+        name: "editTpl",
+        component: EditTpl,
+        meta: { title: "修改模板" }
+    },
+    {
+        path: "/target/editTarget",
+        name: "editTarget",
+        component: EditTarget,
+        meta: { title: "修改跳转链接" }
+    },
+    {
+        path: "/credit/editCredit",
+        name: "editCredit",
+        component: EditCredit,
+        meta: { title: "修改套餐" }
+    }
+]
+
+export const AsyncRouterMap =  [
     {
         path: '/shop',
         name: 'shop',
@@ -126,6 +148,25 @@ export default [
                 name: "addTarget",
                 component: AddTarget,
                 meta: { title: "新建跳转链接" }
+            }
+        ]
+    },
+    {
+        path: '/credit',
+        name: 'credit',
+        meta: {  title: '套餐管理', icon: 'appstore', roleId: ['1','3'] },
+        children: [
+            {
+                path: "/credit/creditList",
+                name: "creditList",
+                component: CreditList,
+                meta: { title: "套餐列表" }
+            },
+            {
+                path: "/credit/addCredit",
+                name: "addCredit",
+                component: AddCredit,
+                meta: { title: "新建套餐" }
             }
         ]
     }
