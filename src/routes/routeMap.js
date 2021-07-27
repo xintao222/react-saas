@@ -187,7 +187,7 @@ export const AsyncRouterMap =  [
                 path: "/creditrecord/addCreditRecord",
                 name: "addCreditRecord",
                 component: AddCreditRecord,
-                meta: { title: "新建" }
+                meta: { title: "新建套餐订购" }
             }
         ]
     }

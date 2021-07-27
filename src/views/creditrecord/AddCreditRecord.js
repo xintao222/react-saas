@@ -42,12 +42,12 @@ export default class addCreditRecord extends React.Component {
         let params = {
             userId: values.userId,
             creditId: values.creditId,
-            charge: values.charge
+            charge: (+values.charge)*100,
         }
         console.log(params)
 
         this.setState({ isDisable: true });
-        https.fetchPost("/yx/creditrecord/add.action", params)
+        https.fetchPost("/yx/saascreditrecord/add.action", params)
         .then(data => {
             this.setState({ isDisable: false });
             console.log(data)
@@ -141,7 +141,7 @@ export default class addCreditRecord extends React.Component {
                     </Form.Item>
                     <Form.Item label="缴费金额">
                         <Form.Item name="charge" noStyle>
-                            <Input style={{ minWidth: 160}} />
+                            <Input style={{ width: 160}} suffix="元" />
                         </Form.Item>
                     </Form.Item>
 

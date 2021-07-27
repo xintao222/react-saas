@@ -1,7 +1,6 @@
 import React from 'react';
-import { Card,Table,Space,Button,Input,message } from 'antd';
+import { Card,Table,Space,Button,Input,Switch,Modal,message } from 'antd';
 import https from "../../api/https";
-import { EditOutlined } from '@ant-design/icons';
 const { Search } = Input;
 export default class CreditRecordList extends React.Component {
     
@@ -17,11 +16,11 @@ export default class CreditRecordList extends React.Component {
             {
                 title: 'ID',
                 dataIndex: 'id',
-                ellipsis: true,
             },
             {
                 title: '用户名',
                 dataIndex: 'userId',
+                ellipsis: true,
             },
             {
                 title: '套餐ID',
@@ -67,7 +66,7 @@ export default class CreditRecordList extends React.Component {
             status: this.state.record.status==0?1:0
         }
         console.log(params);
-        https.fetchPost("/yx/creditrecord/updateStatus.action", params).then(data => {
+        https.fetchPost("/yx/saascreditrecord/updateStatus.action", params).then(data => {
             if (data.code === 0) {
                 message.success("更新成功");
                 this.getList(1);
@@ -90,7 +89,7 @@ export default class CreditRecordList extends React.Component {
             pageNum: index,
             pageSize: 10
         };
-        https.fetchGet("/yx/creditrecord/page.action", params).then(data => {
+        https.fetchGet("/yx/saascreditrecord/page.action", params).then(data => {
             if (data.code === 0) {
                 console.log(data);
                 this.setState({
@@ -110,7 +109,7 @@ export default class CreditRecordList extends React.Component {
         let params = {
             id: val,
         };
-        https.fetchGet("/yx/creditrecord/getById", params).then(data => {
+        https.fetchGet("/yx/saascreditrecord/getById", params).then(data => {
             if (data.code === 0) {
                 console.log(data);
                 return;
@@ -148,7 +147,7 @@ export default class CreditRecordList extends React.Component {
                     className="search"
                     onSearch={value => this.searchList(value)}
                 />
-                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建</Button>
+                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建套餐订购</Button>
                 <Table
                     rowKey={item => item.creditId }
                     columns={columns}
@@ -162,6 +161,17 @@ export default class CreditRecordList extends React.Component {
                         showSizeChanger:false
                     }}
                 />
+                <Modal
+                title="提示"
+                width={300}
+                okText="确定"
+                cancelText="取消"
+                visible={this.state.visible}
+                onOk={this.handleOk}
+                onCancel={this.handleCancel}
+                >
+                <p>确认更新状态？</p>
+                </Modal>
             </Card>
         )
 
