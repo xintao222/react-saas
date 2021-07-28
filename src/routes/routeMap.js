@@ -15,6 +15,8 @@ const CreditList = Loadable({loader: () => import('../views/credit/CreditList'),
 const AddCredit = Loadable({loader: () => import('../views/credit/AddCredit'),loading: Loading});
 const CreditRecordList = Loadable({loader: () => import('../views/creditrecord/CreditRecordList'),loading: Loading});
 const AddCreditRecord = Loadable({loader: () => import('../views/creditrecord/AddCreditRecord'),loading: Loading});
+const SensitiveWordList = Loadable({loader: () => import('../views/sensitive/SensitiveWordList'),loading: Loading});
+const AddSensitiveWord = Loadable({loader: () => import('../views/sensitive/AddSensitiveWord'),loading: Loading});
 
 const EditShop = Loadable({loader: () => import('../views/shop/EditShop'),loading: Loading});
 const EditApp = Loadable({loader: () => import('../views/app/EditApp'),loading: Loading});
@@ -188,6 +190,25 @@ export const AsyncRouterMap =  [
                 name: "addCreditRecord",
                 component: AddCreditRecord,
                 meta: { title: "新建套餐订购" }
+            }
+        ]
+    },
+    {
+        path: '/sensitive',
+        name: 'sensitive',
+        meta: {  title: '敏感词管理', icon: 'appstore', roleId: ['1','3'] },
+        children: [
+            {
+                path: "/sensitive/sensitiveWordList",
+                name: "sensitiveWordList",
+                component: SensitiveWordList,
+                meta: { title: "敏感词列表" }
+            },
+            {
+                path: "/sensitive/addSensitiveWord",
+                name: "addSensitiveWord",
+                component: AddSensitiveWord,
+                meta: { title: "新建敏感词" }
             }
         ]
     }

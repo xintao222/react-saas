@@ -7,6 +7,7 @@ Mock.mock(/\/yx\/user\/page.action/,"get",require("./shopList.json"))
 Mock.mock(/\/yx\/endpointapp\/page.action/,"get",require("./appList.json"))
 Mock.mock(/\/appDetail/,"get",require("./appDetail.json"))
 Mock.mock(/\/roleMenu/,"get",require("./roleMenu.json"))
+Mock.mock(/\/yx\/sensitivewords\/page.action/,"get",require("./sensitiveWordList.json"))
 
 Mock.mock(/\/upload/,"post",require("./upload.json"))
 Mock.mock(/\/lableuser\/allLable/,"post",require("./allLable.json"))

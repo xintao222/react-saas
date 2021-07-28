@@ -131,4 +131,19 @@ input::-ms-clear, input::-ms-reveal{
 #root,.ant-layout{
     height: 100%;
 }
+
+.edit-gronp{
+  margin-bottom: 15px;
+}
+.edit-label{
+  display: inline-block;
+  width: 55px;
+  padding-right: 10px;
+  line-height: 32px;
+  text-align: right;
+}
+.edit-input{
+  display: inline-block;
+  width: calc(100% - 55px);
+}
   
