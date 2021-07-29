@@ -44,33 +44,31 @@ export default class AddShop extends React.Component {
             message.error("请输入密码");
             return false;
         }
-        if (!values.email) {
-            message.error("请输入邮箱");
-            return false;
-        }
-        if (!values.mobile) {
-            message.error("请输入电话");
-            return false;
-        }
-        if (!values.address) {
-            message.error("请输入商户地址");
-            return false;
-        }
-        if (!values.dailyLimit) {
-            message.error("请输入每日流量限制");
-            return false;
-        }
-        console.log(values)
-        
+        // if (!values.email) {
+        //     message.error("请输入邮箱");
+        //     return false;
+        // }
+        // if (!values.mobile) {
+        //     message.error("请输入电话");
+        //     return false;
+        // }
+        // if (!values.address) {
+        //     message.error("请输入商户地址");
+        //     return false;
+        // }
+        // if (!values.dailyLimit) {
+        //     message.error("请输入每日流量限制");
+        //     return false;
+        // }
         let params = {
             userId: values.userId,
             userName: values.userName,
             password: values.password,
             email: values.email,
             mobile: values.mobile,
-            address: values.address,
-            dailyLimit: values.dailyLimit
+            address: values.address
         }
+        console.log(params)
 
         this.setState({ isDisable: true });
         https.fetchPost("/yx/user/update.action", params)
@@ -130,28 +128,27 @@ export default class AddShop extends React.Component {
                     </Form.Item>
                     <Form.Item label="&emsp;&emsp;商户名称">
                         <Form.Item name="userName" noStyle>
-                            <Input />
+                            <Input autoComplete={'off'} placeholder="请输入商户名称" />
                         </Form.Item>
-                        {/* <div className="labelInfo">支持输入数字、字母，最多10个字符</div> */}
                     </Form.Item>
                     <Form.Item label="&emsp;&emsp;&emsp;&emsp;密码">
                         <Form.Item name="password" noStyle>
-                            <Input type="password" />
+                            <Input type="password" autoComplete={'off'} placeholder="请输入密码" />
                         </Form.Item>
                     </Form.Item>
                     <Form.Item label="&emsp;&emsp;&emsp;&emsp;电话">
                         <Form.Item name="mobile" noStyle>
-                            <Input maxLength={11} />
+                            <Input maxLength={11} autoComplete={'off'} placeholder="请输入电话" />
                         </Form.Item>
                     </Form.Item>
                     <Form.Item label="&emsp;&emsp;&emsp;&emsp;邮箱">
                         <Form.Item name="email" noStyle>
-                            <Input />
+                            <Input autoComplete={'off'} placeholder="请输入邮箱"/>
                         </Form.Item>
                     </Form.Item>
                     <Form.Item label="&emsp;&emsp;商户地址">
                         <Form.Item name="address" noStyle>
-                            <Input.TextArea autoSize={{minRows: 3}} />
+                            <Input.TextArea  autoComplete={'off'} placeholder="请输入商户地址" autoSize={{minRows: 3}} />
                         </Form.Item>
                     </Form.Item>
                     <Form.Item label="每日流量限制">
