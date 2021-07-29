@@ -28,8 +28,23 @@ export default class AddApp extends React.Component {
             message.error("请输入ID");
             return false;
         }
+        if (values.id.length!=6) {
+            message.error("ID必须为sy_xxx或gy_xxx,(xxx为三位数字，不足补0)");
+            return false;
+        } else{
+            let leftStr = values.id.substring(0,3);
+            if (leftStr!='sy_' && leftStr!='gy_') {
+                message.error("ID必须为sy_xxx或gy_xxx,(xxx为三位数字，不足补0)");
+                return false;
+            }
+            let rightStr = values.id.substring(3,6);
+            if (!/^[0-9]*$/.test(rightStr)) {
+                message.error("ID必须为sy_xxx或gy_xxx,(xxx为三位数字，不足补0)");
+                return false;
+            }
+        }
         if (!values.appName) {
-            message.error("请输入App名称");
+            message.error("请输入应用名称");
             return false;
         }
         let tempName = 0;
@@ -38,27 +53,29 @@ export default class AddApp extends React.Component {
             else tempName++;
         }
         if(tempName>50){
-            message.error("App名称字数不超过25个汉字或50个字母");
+            message.error("应用名称字数不超过25个汉字或50个字母");
             return false;
         }
         if (!values.platform) {
-            message.error("请输入平台");
+            message.error("请选择平台");
             return false;
         }
         if (!values.channel) {
             message.error("请输入渠道");
             return false;
         }
-        console.log(values)
-        
+        if (!/^[1-9]\d{0,1}$/.test(values.channel)) {
+            message.error("渠道必须为小于100的正整数");
+            return false;
+        }
         let params = {
             id: values.id,
             appName: values.appName,
-            platform: values.platform,
-            email: values.email,
-            channel: values.channel,
-            status: values.status,
+            platform: +values.platform,
+            channel: +values.channel,
+            status: +values.status,
         }
+        console.log(params)
 
         this.setState({ isDisable: true });
         https.fetchPost("/yx/endpointapp/add.action", params)
@@ -78,8 +95,8 @@ export default class AddApp extends React.Component {
         this.formRef.current.setFieldsValue({
             id: '',
             appName: '',
-            platform: '',
-            channel: '',
+            platform: undefined,
+            channel: null,
             status: '1'
         });
     }
@@ -98,19 +115,18 @@ export default class AddApp extends React.Component {
                 >
                     <Form.Item label="&emsp;&emsp;&emsp;ID">
                         <Form.Item name="id" noStyle>
-                            <Input />
+                            <Input autoComplete={'off'} maxLength={6} placeholder="请输入ID" />
                         </Form.Item>
+                        <div className="labelInfo">ID自定义规则: sy_xxx,gy_xxx,(xxx为三位数字，不足补0)</div>
                     </Form.Item>
-                    <Form.Item label="App名称">
+                    <Form.Item label="应用名称">
                         <Form.Item name="appName" noStyle>
-                            <Input />
+                            <Input autoComplete={'off'} placeholder="请输入应用名称" />
                         </Form.Item>
-                        {/* <div className="labelInfo">支持输入数字、字母，最多10个字符</div> */}
                     </Form.Item>
                     <Form.Item name="platform" label="&emsp;&emsp;平台">
                         <Select
-                            placeholder="请选择"
-                            style={{ minWidth: 160,width: 'auto',marginRight:20 }}
+                            placeholder="请选择平台"
                         >
                             <Option key="1">私有云</Option>
                             <Option key="2">公有云</Option>
@@ -118,7 +134,7 @@ export default class AddApp extends React.Component {
                     </Form.Item>
                     <Form.Item label="&emsp;&emsp;渠道">
                         <Form.Item name="channel" noStyle>
-                            <Input />
+                            <Input autoComplete={'off'} maxLength={2} placeholder="请输入渠道" />
                         </Form.Item>
                     </Form.Item>
                     <Form.Item name="status" label="&emsp;&emsp;状态">
