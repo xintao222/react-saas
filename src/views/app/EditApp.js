@@ -106,11 +106,11 @@ export default class AddApp extends React.Component {
                     {...formItemLayout}
                     onFinish={this.onFinish}
                 >
-                    <Form.Item label="&emsp;&emsp;&emsp;ID">
+                    <Form.Item label="&emsp;应用ID">
                         <Form.Item name="id" noStyle>
                             <Input disabled autoComplete={'off'} maxLength={6} placeholder="请输入ID" />
                         </Form.Item>
-                        <div className="labelInfo">ID自定义规则: sy_xxx,gy_xxx,(xxx为三位数字，不足补0)</div>
+                        <div className="labelInfo">自定义规则: sy_xxx,gy_xxx,(xxx为三位数字，不足补0)</div>
                     </Form.Item>
                     <Form.Item label="应用名称">
                         <Form.Item name="appName" noStyle>

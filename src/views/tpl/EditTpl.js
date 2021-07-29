@@ -52,7 +52,7 @@ export default class AddTpl extends React.Component {
             tplName: values.tplName,
             content: values.content,
             isDefault: +values.isDefault,
-            ownerAppKey: values.ownerAppKey,
+            ownerAppKey: values.ownerAppKey?(+values.ownerAppKey):'',
             enable: +values.enable,
             limitNum: values.limitNum
         }
@@ -94,7 +94,7 @@ export default class AddTpl extends React.Component {
             tplName: '',
             content: '',
             isDefault: '1',
-            ownerAppKey: '',
+            ownerAppKey: undefined,
             enable: '1',
             limitNum: ''
         });
@@ -106,7 +106,7 @@ export default class AddTpl extends React.Component {
                 tplName: data.tplName,
                 content: data.content,
                 isDefault: data.isDefault? (data.isDefault+'') : '1',
-                ownerAppKey: data.ownerAppKey,
+                ownerAppKey: data.ownerAppKey? (data.ownerAppKey+'') : undefined,
                 enable: data.enable? (data.enable+'') : '1',
                 limitNum: data.limitNum
             });
@@ -132,15 +132,15 @@ export default class AddTpl extends React.Component {
                     </Form.Item>
                     <Form.Item label="&emsp;&emsp;模板名称">
                         <Form.Item name="tplName" noStyle>
-                            <Input />
+                            <Input autoComplete={'off'} placeholder="请输入模板名称"/>
                         </Form.Item>
                     </Form.Item>
                     <Form.Item label="&emsp;&emsp;模板内容">
                         <Form.Item name="content" noStyle>
-                            <Input.TextArea autoSize={{minRows: 4}} />
+                            <Input.TextArea autoComplete={'off'} placeholder="请输入模板内容" autoSize={{minRows: 4}} />
                         </Form.Item>
                     </Form.Item>
-                    <Form.Item name="isDefault" label="是否默认模板">
+                    <Form.Item name="isDefault" label="&emsp;&emsp;默认模板">
                         <Radio.Group>
                             <Radio value="1">是</Radio>
                             <Radio value="2">否</Radio>
@@ -149,7 +149,6 @@ export default class AddTpl extends React.Component {
                     <Form.Item name="ownerAppKey" label="&emsp;&emsp;所属应用">
                         <Select
                             placeholder="请选择应用"
-                            style={{ minWidth: 160,width: 'auto',marginRight:20 }}
                         >
                             {
                                 appList.map((item,idx) =>{
@@ -160,15 +159,15 @@ export default class AddTpl extends React.Component {
                             }
                         </Select>
                     </Form.Item>
-                    {/* <Form.Item name="enable" label="&emsp;&emsp;是否可用">
+                    {/* <Form.Item name="enable" label="&emsp;&emsp;&emsp;&emsp;状态">
                         <Radio.Group>
-                            <Radio value="1">是</Radio>
-                            <Radio value="0">否</Radio>
+                            <Radio value="1">可用</Radio>
+                            <Radio value="0">不可用</Radio>
                         </Radio.Group>
                     </Form.Item> */}
                     <Form.Item label="每日发送限制">
                         <Form.Item name="limitNum" noStyle>
-                            <Input />
+                            <Input autoComplete={'off'} placeholder="请输入每日发送限制" />
                         </Form.Item>
                     </Form.Item>
 
