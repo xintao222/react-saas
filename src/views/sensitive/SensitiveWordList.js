@@ -115,7 +115,7 @@ export default class SensitiveWordList extends React.Component {
                 message.success("更新成功");
                 this.getList(1);
             }
-            else message.error("更新失败");
+            else message.error(data.data);
         })
         this.setState({
           showEdit: false,
@@ -132,10 +132,10 @@ export default class SensitiveWordList extends React.Component {
                 message.success("更新成功");
                 this.getList(1);
             }
-            else message.error("更新失败");
+            else message.error(data.data);
         })
         this.setState({
-          showEdit: false,
+          showDelete: false,
         });
     };
     

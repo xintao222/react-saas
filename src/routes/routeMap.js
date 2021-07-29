@@ -17,6 +17,8 @@ const CreditRecordList = Loadable({loader: () => import('../views/creditrecord/C
 const AddCreditRecord = Loadable({loader: () => import('../views/creditrecord/AddCreditRecord'),loading: Loading});
 const SensitiveWordList = Loadable({loader: () => import('../views/sensitive/SensitiveWordList'),loading: Loading});
 const AddSensitiveWord = Loadable({loader: () => import('../views/sensitive/AddSensitiveWord'),loading: Loading});
+const HistoryList = Loadable({loader: () => import('../views/history/HistoryList'),loading: Loading});
+const HistoryDetail = Loadable({loader: () => import('../views/history/HistoryDetail'),loading: Loading});
 
 const EditShop = Loadable({loader: () => import('../views/shop/EditShop'),loading: Loading});
 const EditApp = Loadable({loader: () => import('../views/app/EditApp'),loading: Loading});
@@ -209,6 +211,25 @@ export const AsyncRouterMap =  [
                 name: "addSensitiveWord",
                 component: AddSensitiveWord,
                 meta: { title: "新建敏感词" }
+            }
+        ]
+    },
+    {
+        path: '/history',
+        name: 'history',
+        meta: {  title: '发送历史管理', icon: 'appstore', roleId: ['1','3'] },
+        children: [
+            {
+                path: "/history/historyList",
+                name: "historyList",
+                component: HistoryList,
+                meta: { title: "发送历史列表" }
+            },
+            {
+                path: "/history/historyDetail",
+                name: "historyDetail",
+                component: HistoryDetail,
+                meta: { title: "发送历史详情" }
             }
         ]
     }
