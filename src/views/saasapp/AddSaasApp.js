@@ -105,7 +105,6 @@ export default class AddSaasApp extends React.Component {
                 
                 <div style={{ marginTop:20,marginBottom:20 }}>
                     <Select 
-                        size="large" 
                         placeholder="请选择商户"
                         onChange={this.shopChange} 
                         style={{ minWidth: 150,width: 'auto',marginRight:15 }}
@@ -120,7 +119,6 @@ export default class AddSaasApp extends React.Component {
                     </Select>
                     <Select
                         mode="tags"
-                        size="large"
                         value={appValue}
                         placeholder="请选择应用"
                         // maxTagCount={1}
@@ -135,7 +133,7 @@ export default class AddSaasApp extends React.Component {
                             })
                         }
                     </Select>
-                    <Button type="primary" size="large" disabled={isDisable} onClick={this.submit} >
+                    <Button type="primary" disabled={isDisable} onClick={this.submit} >
                         添加
                     </Button>
                 </div>

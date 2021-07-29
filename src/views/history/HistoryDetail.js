@@ -82,7 +82,6 @@ export default class historyDetail extends React.Component {
                     <Form.Item name="userId" label="商户名称">
                         <Select disabled
                             placeholder="请选择商户"
-                            style={{ minWidth: 160,width: 'auto',marginRight:20 }}
                         >
                             {
                                 userList.map((item,idx) =>{

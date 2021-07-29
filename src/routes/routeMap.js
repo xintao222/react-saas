@@ -19,6 +19,7 @@ const SensitiveWordList = Loadable({loader: () => import('../views/sensitive/Sen
 const AddSensitiveWord = Loadable({loader: () => import('../views/sensitive/AddSensitiveWord'),loading: Loading});
 const HistoryList = Loadable({loader: () => import('../views/history/HistoryList'),loading: Loading});
 const HistoryDetail = Loadable({loader: () => import('../views/history/HistoryDetail'),loading: Loading});
+const DailyMsgList = Loadable({loader: () => import('../views/history/DailyMsgList'),loading: Loading});
 
 const EditShop = Loadable({loader: () => import('../views/shop/EditShop'),loading: Loading});
 const EditApp = Loadable({loader: () => import('../views/app/EditApp'),loading: Loading});
@@ -58,6 +59,12 @@ export const StaticRouterMap = [
         name: "editCredit",
         component: EditCredit,
         meta: { title: "修改套餐" }
+    },
+    {
+        path: "/history/historyDetail",
+        name: "historyDetail",
+        component: HistoryDetail,
+        meta: { title: "发送历史详情" }
     }
 ]
 
@@ -226,10 +233,10 @@ export const AsyncRouterMap =  [
                 meta: { title: "发送历史列表" }
             },
             {
-                path: "/history/historyDetail",
-                name: "historyDetail",
-                component: HistoryDetail,
-                meta: { title: "发送历史详情" }
+                path: "/history/dailyMsgList",
+                name: "dailyMsgList",
+                component: DailyMsgList,
+                meta: { title: "每日商户发送量列表" }
             }
         ]
     }
