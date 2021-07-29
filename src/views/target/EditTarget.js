@@ -65,7 +65,7 @@ export default class AddTarget extends React.Component {
 
         this.formRef.current.setFieldsValue({
             targetId: '',
-            jumptype: '',
+            jumptype: undefined,
             target: '',
             btnnm: '',
             status: '1'
@@ -75,7 +75,7 @@ export default class AddTarget extends React.Component {
             let data = window.targetList;
             this.formRef.current.setFieldsValue({
                 targetId: data.targetId,
-                jumptype: data.jumptype? (data.jumptype+'') : '1',
+                jumptype: data.jumptype? (data.jumptype+'') : undefined,
                 target: data.target,
                 btnnm: data.btnnm,
                 status: data.status? (data.status+'') : '1',
@@ -103,7 +103,6 @@ export default class AddTarget extends React.Component {
                     <Form.Item name="jumptype" label="跳转类型">
                         <Select
                             placeholder="请选择"
-                            style={{ minWidth: 160,width: 'auto',marginRight:20 }}
                         >
                             <Option key="1">url</Option>
                             <Option key="2">功能页</Option>
@@ -111,12 +110,12 @@ export default class AddTarget extends React.Component {
                     </Form.Item>
                     <Form.Item label="目标链接">
                         <Form.Item name="target" noStyle>
-                            <Input />
+                            <Input autoComplete={'off'} placeholder="请输入目标链接" />
                         </Form.Item>
                     </Form.Item>
                     <Form.Item label="按钮文本">
                         <Form.Item name="btnnm" noStyle>
-                            <Input />
+                            <Input autoComplete={'off'} placeholder="请输入按钮文本" />
                         </Form.Item>
                     </Form.Item>
                     {/* <Form.Item name="status" label="&emsp;&emsp;状态">
