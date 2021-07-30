@@ -63,7 +63,7 @@ export default class AddSaasApp extends React.Component {
 
         let params = {
             ownerId: this.state.shopValue,
-            ids: JSON.stringify(this.state.appValue)
+            ids: this.state.appValue
         }
         if (!params.ownerId) {
             message.error("请选择商户");

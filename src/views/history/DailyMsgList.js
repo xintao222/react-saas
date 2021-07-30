@@ -18,6 +18,10 @@ export default class DailyMsgList extends React.Component {
                 dataIndex: 'id',
             },
             {
+                title: '商户名称',
+                dataIndex: 'userName',
+            },
+            {
                 title: '商户标识',
                 dataIndex: 'userId',
             },

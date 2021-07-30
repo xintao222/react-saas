@@ -21,7 +21,7 @@ export default class SaasAppList extends React.Component {
             },
             {
                 title: '商户名称',
-                dataIndex: 'appName',
+                dataIndex: 'bak1',
             },
             {
                 title: '应用ID',
@@ -155,7 +155,7 @@ export default class SaasAppList extends React.Component {
                     className="search"
                     onSearch={value => this.searchList(value)}
                 />
-                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建应用</Button>
+                <Button type="primary" onClick={this.jump} style={{ float:'right' }}>新建商户接入</Button>
                 <Table
                     rowKey={item => item.id }
                     columns={columns}
